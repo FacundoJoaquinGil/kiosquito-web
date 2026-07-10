@@ -1,7 +1,13 @@
+import Header from "./components/Header/Header";
+import Sidebar from "./components/Sidebar/Sidebar";
+
 function App() {
   return (
     <>
-      <h1>Kiosquito</h1>
+      <Header />
+      <main>
+        <Sidebar/>
+      </main> 
     </>
   );
 }

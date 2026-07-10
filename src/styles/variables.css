@@ -1,0 +1,60 @@
+:root {
+  /* =======================================================
+     COLORES PRINCIPALES
+  ======================================================= */
+
+  --color-primary: #fa7317;
+  --color-primary-hover: #e85d04;
+
+  /* =======================================================
+     BACKGROUNDS
+  ======================================================= */
+
+  --background-main: #f9fafc;
+  --background-secondary: #ffffff;
+  --background-terciary: #fafbfc;
+
+  /* =======================================================
+     ESTADOS BG
+  ======================================================= */
+
+  --background-active: var(--color-primary);
+  --background-hover: var(--background-main);
+
+  /* =======================================================
+     TEXTOS
+  ======================================================= */
+
+  --text-primary: #333333;      
+  --text-secondary: #5e6e78;    
+  --text-placeholder: #a0aec0;
+  
+  /* =======================================================
+     BORDES
+  ======================================================= */
+
+  --border-color: #e2e8f0;
+  --border-hover: #cbd5e1;
+  --border-focus: var(--color-primary);
+
+  /* =======================================================
+     ESTADOS
+  ======================================================= */
+
+  --success: #22c55e;
+  --warning: #facc15;
+  --danger: #ef4444;
+  --info: #3b82f6;
+
+  /* =======================================================
+   ANIMACIONES Y TRANSICIONES
+======================================================= */
+
+--transition-fast: 0.2s;
+--transition-normal: 0.3s;
+
+--ease: ease-in-out;
+
+--transition-all: all var(--transition-normal) var(--ease);
+  
+}
