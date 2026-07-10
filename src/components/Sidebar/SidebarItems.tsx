@@ -4,11 +4,7 @@ interface SidebarItemProps {
   active?: boolean;
 }
 
-const SidebarItem = ({
-  title,
-  subtitle,
-  active = false,
-}: SidebarItemProps) => {
+const SidebarItem = ({ title, subtitle, active = false }: SidebarItemProps) => {
   return (
     <div className={`sidebar-item ${active ? "active" : ""}`}>
       <div className="icon"></div>

@@ -1,5 +1,6 @@
 import "./Header.css";
 import logo from "../../assets/images/Logo.svg";
+import lupa from "../../assets/images/lupa.svg";
 
 function Header() {
   return (
@@ -11,6 +12,7 @@ function Header() {
       </div>
 
       <div className="header_buscador">
+        <img src={lupa} className="header_lupa" alt="lupa" />
         <input type="text" placeholder="Buscar producto..."/>
       </div>
 
