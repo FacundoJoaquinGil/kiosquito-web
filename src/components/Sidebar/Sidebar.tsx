@@ -1,49 +1,58 @@
-import "./sidebar.css";
-import SidebarItem from "./SidebarItems";
+import "./Sidebar.css";
+import { Link } from 'react-router-dom';
+import home from "../../assets/images/home.svg"
+import stock from "../../assets/images/stock.svg"
+import carrito from "../../assets/images/carrito.svg"
+import registro from "../../assets/images/registro.svg"
 
 const Sidebar = () => {
   return (
-    <aside className="sidebar">
+    <div className="sidebar">
+      
+      <ul>
+        <li>
+          <Link to="/" className="sidebar-link">
+            <img src={home} alt="icono-home" />
+              <div className="link-cont">
+                <span>Inicio</span>
+                <p className="li-p">Resumen de la página</p>
+              </div>
+          </Link>
+        </li>
 
-      <p className="menu-title">MENÚ</p>
+        <li>
+          <Link to="/Stock" className="sidebar-link">
+            <img src={stock} alt="icono-stock"/>
+              <div className="link-cont">
+                <span>Stock</span>
+                <p className="li-p">Agrega y edita tus productos</p>
+              </div>
+          </Link>
+        </li>
 
-      <nav>
-        <SidebarItem
-          title="Inicio"
-          subtitle="Resumen general"
-          active={true}
-        />
+        <li>
+          <Link to="/Ventas" className="sidebar-link">
+            <img src={carrito} alt="icono-carrito"/>
+              <div className="link-cont">
+                <span>Ventas</span>
+                <p className="li-p">Registra una nueva venta</p>
+              </div>
+          </Link>
+        </li>
 
-        <SidebarItem
-          title="Stock"
-          subtitle="Agregar y editar productos"
-        />
-
-        <SidebarItem
-          title="Ventas"
-          subtitle="Registrar ventas"
-        />
-
-        <SidebarItem
-          title="Registro del día"
-          subtitle="Movimientos de hoy"
-        />
-      </nav>
-
-      <div className="bottom">
-        <SidebarItem title="Ajustes" />
-
-        <div className="profile">
-          <div className="avatar">ML</div>
-
-          <div>
-            <h4>María López</h4>
-            <p>Kiosco "La Pato"</p>
-          </div>
-        </div>
-      </div>
-    </aside>
+        <li>
+          <Link to="/Registro" className="sidebar-link">
+            <img src={registro} alt="icono-registro"/>
+              <div className="link-cont">
+                <span>Registro</span>
+                <p className="li-p">Observa los movimientos del dia</p>
+              </div>
+          </Link>
+        </li>
+        
+      </ul>
+    </div>
   );
 };
 
-export default Sidebar;
+export default Sidebar

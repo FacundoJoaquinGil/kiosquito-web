@@ -2,7 +2,7 @@ import "./Header.css";
 import logo from "../../assets/images/Logo.svg";
 import lupa from "../../assets/images/lupa.svg";
 
-function Header() {
+const Header = () => {
   return (
     <header className="header">
 

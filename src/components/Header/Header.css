@@ -8,16 +8,20 @@
 }
 
 .header_logo {
+    margin-left: 50px;
     display: flex;
     align-items: center;
 }
 
 .header_logo img {
+    width: 60px;
     height: 60px;
 }
 
 .header_logo h2 {
+    margin-left: 5px;
     color: var(--text-primary);
+    
 }
 
 .header_buscador {
