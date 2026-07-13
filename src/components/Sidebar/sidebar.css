@@ -2,6 +2,7 @@
     width: 20rem;
     height: calc(100vh - 71px);
     border-right: 1px solid var(--border-color);
+    background-color: var(--background-secondary);
 }
 
 .sidebar ul {
@@ -10,9 +11,79 @@
 }
 
 .sidebar li{
+    padding: 10px;
     margin-bottom: 1rem;
+    border-radius: 10px;
+    background-color: var(--background-main);
 }
+
 
 .sidebar li a{
     text-decoration: none;
 }
+
+.sidebar span{
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.sidebar p{
+    color: var(--text-secondary);
+}
+
+/* ESTILOS NUEVOS PARA MAÑANA */
+
+/* .sidebar {
+  width: 20rem;
+  height: calc(100vh - 71px);
+  border-right: 1px solid var(--border-color);
+  background-color: var(--background-secondary);
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 1rem 2rem;
+}
+
+Quitamos fondo y bordes del 'li' y los pasamos al 'a' para que el clic ocupe todo el espacio 
+.sidebar li {
+  margin-bottom: 1rem;
+}
+
+ Reorganizamos los estilos del enlace para que actúe como un bloque completo 
+.sidebar li a {
+  text-decoration: none;
+  display: flex;  Alinea icono y textos horizontalmente 
+  align-items: center;
+  gap: 15px;  Espacio opcional entre el icono y los textos 
+  padding: 10px;
+  border-radius: 10px;
+  background-color: var(--background-main);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sidebar span {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.sidebar p {
+  color: var(--text-secondary);
+}
+
+NUEVOS ESTILOS PARA EL ESTADO ACTIVO 
+Cuando NavLink añade la clase .active al enlace
+.sidebar li a.active {
+  background-color: #ff6600; Fondo naranja 
+}
+
+ Forzamos a que el span y el p pasen a blanco al estar activo 
+.sidebar li a.active span,
+.sidebar li a.active p {
+  color: #ffffff;
+}
+
+ Opcional: convierte tus iconos SVG a blanco puro cuando esté activo 
+.sidebar li a.active img {
+  filter: brightness(0) invert(1);
+} */
