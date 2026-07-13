@@ -1,0 +1,89 @@
+
+.sidebar-profile {
+    padding: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.settings-button {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    width: 100%;
+    padding: .75rem;
+    border: none;
+    border-radius: .75rem;
+    background-color: var(--background-main);
+    cursor: pointer;
+    transition: var(--transition-all);
+}
+
+.settings-button:hover{
+    background-color: var(--background-hover);
+}
+
+.settings-button img {
+    width: 24px;
+    height: 24px;
+}
+
+.settings-button span {
+    font-size: .95rem;
+    color: var(--text-secondary);
+}
+
+.profile-card {
+    display: flex;
+    align-items: center;
+    padding: .75rem;
+    margin-top: 1rem;
+    border-radius: .75rem;
+    background: var(--background-hover);
+}
+
+
+.profile-image {
+    width: 42px;
+    height: 42px;
+    padding: 6px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    flex-shrink: 0;
+}
+
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+
+    margin-left: .75rem;
+}
+
+.profile-name {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.profile-store {
+    font-size: .9rem;
+    color: var(--text-secondary);
+}
+
+
+
+.logout-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: .5rem;
+    background: var(--background-main);
+    cursor: pointer;
+}
+
+.logout-button img {
+    width: 22px;
+    height: 22px;
+}

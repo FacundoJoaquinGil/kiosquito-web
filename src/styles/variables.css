@@ -10,7 +10,7 @@
      BACKGROUNDS
   ======================================================= */
 
-  --background-main: #f9fafc;
+  --background-main: #f1f5f9;
   --background-secondary: #ffffff;
   --background-terciary: #fafbfc;
 
@@ -19,7 +19,7 @@
   ======================================================= */
 
   --background-active: var(--color-primary);
-  --background-hover: #f2f3f7;
+  --background-hover: #f1f5f9;
 
   /* =======================================================
      TEXTOS
