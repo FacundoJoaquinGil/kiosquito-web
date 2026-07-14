@@ -10,16 +10,16 @@
      BACKGROUNDS
   ======================================================= */
 
-  --background-main: #f1f5f9;
+  --background-main: #f8fafc;
   --background-secondary: #ffffff;
-  --background-terciary: #fafbfc;
+  --background-terciary: #f5fafff9;
 
   /* =======================================================
      ESTADOS BG
   ======================================================= */
 
   --background-active: var(--color-primary);
-  --background-hover: #f1f5f9;
+  --background-hover:  #f1f5f9;
 
   /* =======================================================
      TEXTOS

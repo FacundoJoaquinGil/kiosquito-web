@@ -34,7 +34,7 @@
   gap: 15px;  
   padding: 10px;
   border-radius: 10px;
-  background-color: var(--background-main);
+  background-color: var(--background-terciary);
   transition: var(--transition-all);
 }
 

@@ -1,0 +1,15 @@
+.home-container {
+    margin: 2rem;
+}
+
+.home-container h1 {
+    margin-bottom: 20px;
+}
+
+.home-container h3 {
+    margin-bottom: 5px;
+}
+
+.kiosco-name{
+    color: var(--color-primary);
+}
