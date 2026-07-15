@@ -1,0 +1,287 @@
+.registro-container {
+  padding: 24px 40px 40px 40px; 
+  font-family: system-ui, -apple-system, sans-serif;
+  width: 100%; 
+  max-width: 100%; 
+  color: #1e293b;
+  box-sizing: border-box;
+}
+
+.registro-header {
+  margin-bottom: 32px;
+}
+
+.registro-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  color: #0f172a;
+}
+
+.registro-header p {
+  font-size: 1rem;
+  color: #64748b;
+  margin: 0;
+}
+
+
+.registro-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 24px;
+  margin-bottom: 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  box-sizing: border-box;
+  transition: transform 0.2s;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.card-title {
+  font-size: 1rem;
+  color: #64748b;
+  font-weight: 550;
+}
+
+.card-icon {
+  background-color: #f1f5f9;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.card-value {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  color: #0f172a;
+}
+
+.card-sub-green {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #10b981;
+  margin: 0;
+}
+
+.card-sub-gray {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.movimientos-section {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.movimientos-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.movimientos-title h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  color: #0f172a;
+}
+
+.movimientos-title p {
+  font-size: 0.95rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.search-container {
+  position: relative;
+  width: 100%;
+  max-width: 320px; 
+}
+
+.search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 14px 12px 40px;
+  border: 1px solid #cbd5e1;
+  border-radius: 9999px;
+  background-color: #f8fafc;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.search-input:focus {
+  border-color: #94a3b8;
+  background-color: #ffffff;
+}
+
+.filtros {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 16px;
+}
+
+.filtro-btn {
+  background: none;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  font-size: 0.95rem;
+  font-weight: 550;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filtro-btn:hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+.filtro-btn.active {
+  background-color: #0f172a;
+  color: #ffffff;
+}
+
+.lista-movimientos {
+  display: flex;
+  flex-direction: column;
+}
+
+.movimiento-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.movimiento-row:last-child {
+  border-bottom: none;
+}
+
+.movimiento-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.movimiento-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.bg-gray {
+  background-color: #f1f5f9;
+  color: #475569;
+}
+
+.bg-green-light {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.bg-red-light {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.movimiento-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.movimiento-info strong {
+  font-size: 1rem;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.movimiento-info span {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.monto {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.monto.positivo {
+  color: #10b981;
+}
+
+.monto.negativo {
+  color: #ef4444;
+}
+.content{
+    width: 100%;
+}
+/* --- Estilos aislados que solo se activan en la pantalla de Registro --- */
+
+/* Forzamos a que el contenedor principal no haga scroll general */
+.flex.layout-registro-activo {
+  align-items: stretch;
+  height: calc(100vh - 60px); /* Resta el alto estimado del Header */
+  overflow: hidden;
+}
+
+/* Hacemos que solo tu sección de contenido tenga scroll si hay muchos elementos */
+.content.scroll-registro-activo {
+  height: 100%;
+  overflow-y: auto;
+  background-color: #f8fafc; /* Color gris claro de fondo */
+}
+
+/* Opcional: Asegurar que el sidebar no se deforme en tu pantalla */
+.layout-registro-activo aside, 
+.layout-registro-activo .sidebar {
+  height: 100%;
+  flex-shrink: 0;
+}
