@@ -3,7 +3,7 @@
   font-family: system-ui, -apple-system, sans-serif;
   width: 100%; 
   max-width: 100%; 
-  color: #1e293b;
+  color: var(--text-primary);
   box-sizing: border-box;
 }
 
@@ -15,15 +15,14 @@
   font-size: 2rem;
   font-weight: 700;
   margin: 0 0 8px 0;
-  color: #0f172a;
+  color: var(--text-primary);
 }
 
 .registro-header p {
   font-size: 1rem;
-  color: #64748b;
+  color: var(--text-secondary);
   margin: 0;
 }
-
 
 .registro-cards {
   display: grid;
@@ -35,13 +34,13 @@
 }
 
 .card {
-  background-color: #ffffff;
-  border: 1px solid #e2e8f0;
+  background-color: var(--background-secondary); 
+  border: 1px solid var(--border-color); 
   border-radius: 16px;
   padding: 28px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
   box-sizing: border-box;
-  transition: transform 0.2s;
+  transition: transform var(--transition-fast) var(--ease);
 }
 
 .card-header {
@@ -53,12 +52,12 @@
 
 .card-title {
   font-size: 1rem;
-  color: #64748b;
+  color: var(--text-secondary);
   font-weight: 550;
 }
 
 .card-icon {
-  background-color: #f1f5f9;
+  background-color: var(--background-hover);
   width: 40px;
   height: 40px;
   border-radius: 8px;
@@ -72,25 +71,25 @@
   font-size: 2.2rem;
   font-weight: 700;
   margin: 0 0 8px 0;
-  color: #0f172a;
+  color: var(--text-primary); 
 }
 
 .card-sub-green {
   font-size: 0.9rem;
   font-weight: 600;
-  color: #10b981;
+  color: var(--success);
   margin: 0;
 }
 
 .card-sub-gray {
   font-size: 0.9rem;
-  color: #94a3b8;
+  color: var(--text-secondary); 
   margin: 0;
 }
 
 .movimientos-section {
-  background-color: #ffffff;
-  border: 1px solid #e2e8f0;
+  background-color: var(--background-secondary); 
+  border: 1px solid var(--border-color);
   border-radius: 16px;
   padding: 32px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
@@ -111,12 +110,12 @@
   font-size: 1.35rem;
   font-weight: 700;
   margin: 0 0 6px 0;
-  color: #0f172a;
+  color: var(--text-primary);
 }
 
 .movimientos-title p {
   font-size: 0.95rem;
-  color: #64748b;
+  color: var(--text-secondary);
   margin: 0;
 }
 
@@ -131,32 +130,33 @@
   left: 14px;
   top: 50%;
   transform: translateY(-50%);
-  color: #94a3b8;
+  color: var(--text-placeholder); 
   font-size: 0.95rem;
 }
 
 .search-input {
   width: 100%;
   padding: 12px 14px 12px 40px;
-  border: 1px solid #cbd5e1;
+  border: 1px solid var(--border-color);
   border-radius: 9999px;
-  background-color: #f8fafc;
+  background-color: var(--background-main); 
+  color: var(--text-primary);
   font-size: 0.95rem;
   outline: none;
-  transition: all 0.2s ease;
+  transition: var(--transition-all);
   box-sizing: border-box;
 }
 
 .search-input:focus {
-  border-color: #94a3b8;
-  background-color: #ffffff;
+  border-color: var(--border-focus);
+  background-color: var(--background-secondary);
 }
 
 .filtros {
   display: flex;
   gap: 8px;
   margin-bottom: 24px;
-  border-bottom: 1px solid #f1f5f9;
+  border-bottom: 1px solid var(--border-color);
   padding-bottom: 16px;
 }
 
@@ -167,19 +167,19 @@
   border-radius: 9999px;
   font-size: 0.95rem;
   font-weight: 550;
-  color: #64748b;
+  color: var(--text-secondary);
   cursor: pointer;
-  transition: all 0.2s;
+  transition: var(--transition-all);
 }
 
 .filtro-btn:hover {
-  background-color: #f1f5f9;
-  color: #0f172a;
+  background-color: var(--background-hover);
+  color: var(--text-primary);
 }
 
 .filtro-btn.active {
-  background-color: #0f172a;
-  color: #ffffff;
+  background-color: var(--background-active);
+  color: var(--background-secondary);
 }
 
 .lista-movimientos {
@@ -192,7 +192,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 18px 0;
-  border-bottom: 1px solid #f1f5f9;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .movimiento-row:last-child {
@@ -217,18 +217,18 @@
 }
 
 .bg-gray {
-  background-color: #f1f5f9;
-  color: #475569;
+  background-color: var(--background-hover);
+  color: var(--text-secondary);
 }
 
 .bg-green-light {
-  background-color: #d1fae5;
-  color: #065f46;
+  background-color: var(--background-terciary);
+  color: var(--success);
 }
 
 .bg-red-light {
   background-color: #fee2e2;
-  color: #991b1b;
+  color: var(--danger);
 }
 
 .movimiento-info {
@@ -239,13 +239,13 @@
 
 .movimiento-info strong {
   font-size: 1rem;
-  color: #1e293b;
+  color: var(--text-primary);
   font-weight: 600;
 }
 
 .movimiento-info span {
   font-size: 0.85rem;
-  color: #64748b;
+  color: var(--text-secondary);
 }
 
 .monto {
@@ -254,32 +254,29 @@
 }
 
 .monto.positivo {
-  color: #10b981;
+  color: var(--success);
 }
 
 .monto.negativo {
-  color: #ef4444;
+  color: var(--danger);
 }
-.content{
-    width: 100%;
-}
-/* --- Estilos aislados que solo se activan en la pantalla de Registro --- */
 
-/* Forzamos a que el contenedor principal no haga scroll general */
+.content {
+  width: 100%;
+}
+
 .flex.layout-registro-activo {
   align-items: stretch;
-  height: calc(100vh - 60px); /* Resta el alto estimado del Header */
+  height: calc(100vh - 60px);
   overflow: hidden;
 }
 
-/* Hacemos que solo tu sección de contenido tenga scroll si hay muchos elementos */
 .content.scroll-registro-activo {
   height: 100%;
   overflow-y: auto;
-  background-color: #f8fafc; /* Color gris claro de fondo */
+  background-color: var(--background-main);
 }
 
-/* Opcional: Asegurar que el sidebar no se deforme en tu pantalla */
 .layout-registro-activo aside, 
 .layout-registro-activo .sidebar {
   height: 100%;
