@@ -5,6 +5,7 @@
   height: calc(100vh - 71px);
   border-right: 1px solid var(--border-color);
   background-color: var(--background-secondary);
+  animation: slide-left .3s ease;
 }
 
 .sidebar-body{
@@ -24,6 +25,9 @@
 
 .sidebar li {
   margin-bottom: 1rem;
+
+  transition:
+        transform .2s ease,
 }
 
 
@@ -40,6 +44,7 @@
 
 .sidebar li a:hover{
   background-color: var(--background-hover);
+  transform: translateY(-3px);
 }
 
 .sidebar span {

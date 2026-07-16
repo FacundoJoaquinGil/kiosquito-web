@@ -48,15 +48,142 @@
   --danger: #ef4444;
   --info: #3b82f6;
 
-  /* =======================================================
+/* =======================================================
    ANIMACIONES Y TRANSICIONES
 ======================================================= */
 
---transition-fast: 0.2s;
---transition-normal: 0.3s;
+/* Duración */
+
+--transition-fast: .2s;
+--transition-normal: .3s;
+--transition-slow: .5s;
+
+/* Curvas */
 
 --ease: ease-in-out;
+--ease-in: ease-in;
+--ease-out: ease-out;
+--ease-bounce: cubic-bezier(.34,1.56,.64,1);
+
+/* Transiciones reutilizables */
 
 --transition-all: all var(--transition-normal) var(--ease);
-  
+
+--transition-transform:
+    transform var(--transition-fast) var(--ease);
+
+--transition-color:
+    color var(--transition-fast) var(--ease);
+
+--transition-background:
+    background-color var(--transition-fast) var(--ease);
+
+--transition-border:
+    border-color var(--transition-fast) var(--ease);
+
+--transition-opacity:
+    opacity var(--transition-fast) var(--ease);
+
+--transition-shadow:
+    box-shadow var(--transition-fast) var(--ease);
+
+--transition-card:
+    transform var(--transition-fast) var(--ease),
+    border-color var(--transition-fast) var(--ease),
+    box-shadow var(--transition-fast) var(--ease);
+
+--transition-button:
+        background-color var(--transition-fast) var(--ease),
+        color var(--transition-fast) var(--ease),
+        border-color var(--transition-fast) var(--ease),
+        transform var(--transition-fast) var(--ease),
+        filter var(--transition-fast) var(--ease);
+
+--transition-icon:
+    transform var(--transition-fast) var(--ease);
+
+--transition-input:
+    border-color var(--transition-fast) var(--ease),
+    box-shadow var(--transition-fast) var(--ease),
+    background-color var(--transition-fast) var(--ease);
+
+}
+
+/* =======================================================
+   KEYFRAMES
+======================================================= */
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-down {
+    from {
+        opacity: 0;
+        transform: translateY(-12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-left {
+    from {
+        opacity: 0;
+        transform: translateX(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-right {
+    from {
+        opacity: 0;
+        transform: translateX(-12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes arrow-move {
+
+   from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(6px);
+    }     
+
 }

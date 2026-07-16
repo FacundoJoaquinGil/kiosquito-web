@@ -5,6 +5,18 @@
 }
 
 
+
+
+.settings-button img {
+    width: 24px;
+    height: 24px;
+}
+
+.settings-button span {
+    font-size: medium;
+    color: inherit;
+}
+
 .settings-button {
     display: flex;
     align-items: center;
@@ -16,27 +28,23 @@
     background-color: var(--background-terciary);
     cursor: pointer;
     color: var(--text-secondary);
+
+    transition: var(--transition-button);
 }
 
 .settings-button img {
-    width: 24px;
-    height: 24px;
-}
-
-.settings-button span {
-    font-size: .95rem;
-    color: inherit;
+    transition: filter var(--transition-fast) var(--ease);
 }
 
 .settings-button:hover {
     background-color: var(--background-hover);
     color: var(--text-primary);
+    transform: scale(1.03);
 }
 
 .settings-button:hover img {
     filter: invert(15%) brightness(20%) contrast(100%);
 }
-
 
 
 .profile-card {
@@ -88,11 +96,17 @@
     border-radius: .5rem;
     background: var(--background-terciary);
     cursor: pointer;
+    transition: var(--transition-icon);
 }
 
 .logout-button img {
     width: 22px;
     height: 22px;
+    transition: filter var(--transition-normal) var(--ease);
+}
+
+.logout-button:hover{
+    transform: scale(1.07);
 }
 
 .logout-button:hover img{
