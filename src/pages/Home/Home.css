@@ -78,12 +78,9 @@
 }
 
 .quick-action-card:hover {
-
-    transform: translateY(-3px);
-
+    transform: translateY(-1px);
     border-color: var(--border-focus);
-
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+    /* box-shadow: 5px 5px rgba(0, 0, 0, 0.149); */
 }
 
 .quick-action-icon {

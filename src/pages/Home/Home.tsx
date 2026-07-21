@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom";
 import "./Home.css";
-
 import agregarProducto from "../../assets/images/agregar-producto.svg";
 import registrarVenta from "../../assets/images/registrar-venta.svg";
 import flecha from "../../assets/images/flecha.svg";
+import RegistroQuickList from "./RegistroQuickList/RegistroQuickList";
 
 const Home = () => {
   const nameUser = "Maria";
@@ -72,6 +72,8 @@ const Home = () => {
           </li>
         </ul>
       </section>
+      <RegistroQuickList/>
+
     </main>
   );
 };
