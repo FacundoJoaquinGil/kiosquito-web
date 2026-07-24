@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
-import { registrosQL } from "../../../mocks/registrosQL";
-import "./RegistroQuickList.css";
 import { NavLink } from "react-router-dom";
+
+import { registrosQL } from "../../../mocks/registrosQL";
+
+import "./RegistroQuickList.css";
+import "../../../styles/dashboardCard.css";
+
 import vertodo from "../../../assets/images/vertodo.svg";
 
 const RegistroQuickList = () => {
@@ -12,29 +16,32 @@ const RegistroQuickList = () => {
     const timer = setTimeout(() => {
       setRegistros(registrosQL);
       setLoading(false);
-    }, 2000); // Simula 2 segundos de espera
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <div className="registros-quickList">
-      <header className="registros-header">
+    <div className="dashboard-card">
+      <header className="dashboard-card-header">
         <div>
           <h2>Registro</h2>
           <p>Últimas ventas registradas</p>
         </div>
 
-        <NavLink to="/registro" className="ver-todo">
+        <NavLink to="/registro" className="dashboard-card-action">
           <span>Ver todo</span>
           <img src={vertodo} alt="" />
         </NavLink>
       </header>
 
-      <ul className="registros-list">
+      <ul className="dashboard-list">
         {loading
           ? Array.from({ length: 5 }).map((_, index) => (
-              <li key={index} className="registro-item skeleton-item">
+              <li
+                key={index}
+                className="dashboard-list-item registro-item"
+              >
                 <div className="skeleton skeleton-id"></div>
 
                 <div className="registro-info">
@@ -45,8 +52,11 @@ const RegistroQuickList = () => {
                 <div className="skeleton skeleton-total"></div>
               </li>
             ))
-          : registros.map((registro) => (
-              <li key={registro.id} className="registro-item">
+          : registros.slice(0, 5).map((registro) => (
+              <li
+                key={registro.id}
+                className="dashboard-list-item registro-item"
+              >
                 <div className="registro-id">{registro.id}</div>
 
                 <div className="registro-info">

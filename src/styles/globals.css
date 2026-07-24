@@ -9,6 +9,11 @@ body{
     color: var(--text-primary);
 }
 
-.flex{
-    display: flex;  
+.flex {
+    display: flex;
+}
+
+.content {
+    flex: 1;
+    min-width: 0;
 }

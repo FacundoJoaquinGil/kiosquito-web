@@ -1,5 +1,7 @@
 .home {
-    margin: 2rem;
+    padding: 2rem;
+    width: 100%;
+    box-sizing: border-box;
     animation: slide-up .35s ease;
 }
 
@@ -8,7 +10,7 @@
 ========================== */
 
 .welcome-section {
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
 }
 
 .welcome-title {
@@ -16,7 +18,7 @@
 }
 
 .welcome-subtitle {
-    margin-bottom: .4rem;
+    margin-bottom: .2rem;
     font-weight: 600;
 }
 
@@ -46,10 +48,11 @@
 }
 
 .quick-actions-list {
-    list-style: none;
     display: flex;
     gap: 2rem;
+    list-style: none;
 }
+
 
 /* ==========================
    Tarjetas
@@ -60,6 +63,8 @@
     display: flex;
     align-items: center;
     gap: 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
 
 
     padding: 1.25rem;
@@ -134,4 +139,11 @@
 .quick-action-card:hover .quick-action-arrow {
     filter: invert(15%) brightness(20%) contrast(100%);
     animation: arrow-move var(--transition-fast) forwards;
+}
+
+.ql-body {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
 }

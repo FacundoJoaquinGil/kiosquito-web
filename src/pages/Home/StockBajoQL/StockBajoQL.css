@@ -1,0 +1,129 @@
+/* ==========================
+   Badge cantidad
+========================== */
+
+.cantidadStock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+    padding: .45rem .9rem;
+    margin-left: 10px;
+    border-radius: 999px;
+
+    background: var(--background-danger);
+    color: var(--danger);
+
+    font-size: .85rem;
+    font-weight: 700;
+}
+
+/* ==========================
+   Estado vacío
+========================== */
+
+.stock-vacio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 3rem;
+
+    color: var(--text-secondary);
+    font-size: .95rem;
+    font-weight: 500;
+}
+
+/* ==========================
+   Item
+========================== */
+
+.stock-item {
+    display: flex;
+    align-items: center;
+}
+
+.stock-content {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+
+    gap: 2rem;
+}
+
+/* ==========================
+   Nombre
+========================== */
+
+.producto-nombre {
+    flex: 1;
+
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-primary);
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ==========================
+   Barra + stock
+========================== */
+
+.stock-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 1rem;
+
+    min-width: 210px;
+}
+
+/* ==========================
+   Barra
+========================== */
+
+.barra {
+    flex: 1;
+
+    height: 8px;
+
+    background: var(--background-main);
+
+    border-radius: 999px;
+
+    overflow: hidden;
+}
+
+.barra-progreso {
+    height: 100%;
+
+    border-radius: inherit;
+
+    transition: width .3s ease;
+}
+
+/* ==========================
+   Stock
+========================== */
+
+.stock-texto {
+    width: 42px;
+
+    text-align: right;
+
+    font-size: .95rem;
+    font-weight: 600;
+
+    color: var(--text-secondary);
+}
+
+
+
+.xd{
+    display: flex;
+    align-items: center;
+}

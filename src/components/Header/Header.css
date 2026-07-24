@@ -47,6 +47,7 @@
     border-radius: 40px;
     outline: none;
     font-size: 17px;
+    letter-spacing: .02em;
     transition: var(--transition-normal);
     color: var(--text-primary);
     
@@ -58,7 +59,6 @@
 
 .header_buscador input::placeholder {
     color: var(--text-placeholder);
-    font-weight: 100;
     font-size: medium;
 }
 

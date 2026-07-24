@@ -4,6 +4,7 @@ import agregarProducto from "../../assets/images/agregar-producto.svg";
 import registrarVenta from "../../assets/images/registrar-venta.svg";
 import flecha from "../../assets/images/flecha.svg";
 import RegistroQuickList from "./RegistroQuickList/RegistroQuickList";
+import StockBajoQL from "./StockBajoQL/StockBajoQL";
 
 const Home = () => {
   const nameUser = "Maria";
@@ -72,7 +73,11 @@ const Home = () => {
           </li>
         </ul>
       </section>
-      <RegistroQuickList/>
+      
+      <div className="ql-body">
+        <RegistroQuickList/>
+        <StockBajoQL/>
+      </div>
 
     </main>
   );
