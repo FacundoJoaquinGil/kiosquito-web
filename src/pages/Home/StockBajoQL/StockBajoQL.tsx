@@ -29,7 +29,7 @@ const StockBajoQL = () => {
   
   const cantidadStock = productosStockBajo.length;
   
-  //CAMBIAR ESTO Y LOS CLASSNAME
+  //CAMBIAR ESTO Y LOS CLASSNAME, ETC
   const obtenerEstadoStock = (stock: number) => {
     if (stock <= 5) {
       return {
