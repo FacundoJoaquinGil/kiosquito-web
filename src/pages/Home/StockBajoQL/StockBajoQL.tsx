@@ -22,64 +22,58 @@ const StockBajoQL = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  
   const productosStockBajo = productos.filter(
     (producto) => producto.stock <= 10,
   );
-  
+
   const cantidadStock = productosStockBajo.length;
-  
-  //CAMBIAR ESTO Y LOS CLASSNAME, ETC
+
   const obtenerEstadoStock = (stock: number) => {
-    if (stock <= 5) {
+    const porcentaje = Math.min(stock * 8, 100);
+
+    if (porcentaje <= 40) {
       return {
-        color: "#ef4444",
-        width: "25%",
+        color: "var(--danger)",
+        width: `${porcentaje}%`,
         estado: "Crítico",
       };
     }
 
-    if (stock <= 10) {
-      return {
-        color: "#facc15",
-        width: "45%",
-        estado: "Bajo",
-      };
-    }
-
     return {
-      color: "#22c55e",
-      width: "70%",
-      estado: "Normal",
+      color: "var(--warning)",
+      width: `${porcentaje}%`,
+      estado: "Bajo",
     };
   };
+
   return (
     <div className="dashboard-card">
       <header className="dashboard-card-header">
-
         <div className="dashboard-card-title">
-          
+          <div className="stock-header">
+            <img
+              src={advertencia}
+              alt="Advertencia"
+              className="stock-header-icon"
+            />
 
-          <div>
-            <img src={advertencia} alt="" />
-            <h2>Stock bajo</h2>
-            <p>Productos por reponer</p>
+            <div className="stock-header-text">
+              <h2>Stock bajo</h2>
+              <p>Productos por reponer</p>
+            </div>
           </div>
         </div>
 
-        <div className="xd">
+        <div className="stockBajo-btn-body">
           <NavLink to="/stock" className="dashboard-card-action">
-          <span>Ver todo</span>
-          <img src={mas} alt="" />
-        </NavLink>
-        <div className="cantidadStock">
-          {cantidadStock} {cantidadStock === 1 ? "Producto" : "Productos"}
+            <span>Ver todo</span>
+            <img src={mas} alt="" />
+          </NavLink>
+          <div className="cantidadStock">
+            {cantidadStock} {cantidadStock === 1 ? "Producto" : "Productos"}
+          </div>
         </div>
-        </div>
-
-
       </header>
-
 
       <ul className="dashboard-list">
         {loading ? (

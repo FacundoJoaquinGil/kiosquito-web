@@ -29,7 +29,7 @@ export const stockBajoQL: StockBajo[] = [
   {
     id: 6,
     producto: "Sprite 500ml",
-    stock: 4,
+    stock: 10,
   },
   {
     id: 7,
