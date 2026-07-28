@@ -23,23 +23,25 @@ const Registro = () => {
     obtenerMovimientos();
   }, []);
 
-  useEffect(() => {
-    const contenedorFlex = document.querySelector(".flex");
-    const contenedorContent = document.querySelector(".content");
+ useEffect(() => {
+  const contenedorFlex = document.querySelector(".flex");
+  const contenedorContent = document.querySelector(".content");
+
+  document.body.classList.add("no-scroll-global");
+
+  if (contenedorFlex && contenedorContent) {
+    contenedorFlex.classList.add("layout-registro-activo");
+    contenedorContent.classList.add("scroll-registro-activo");
+  }
+  return () => {
+    document.body.classList.remove("no-scroll-global");
 
     if (contenedorFlex && contenedorContent) {
-      contenedorFlex.classList.add("layout-registro-activo");
-      contenedorContent.classList.add("scroll-registro-activo");
+      contenedorFlex.classList.remove("layout-registro-activo");
+      contenedorContent.classList.remove("scroll-registro-activo");
     }
-
-    return () => {
-      if (contenedorFlex && contenedorContent) {
-        contenedorFlex.classList.remove("layout-registro-activo");
-        contenedorContent.classList.remove("scroll-registro-activo");
-      }
-    };
-  }, []);
-
+  };
+}, []);
   const ventasHoy = movimientos.filter((m) => m.tipo === "venta").length;
 
   const ingresosHoy = movimientos
