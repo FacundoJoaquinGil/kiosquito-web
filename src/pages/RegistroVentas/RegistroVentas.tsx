@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./Registro.css";
+import "./RegistroVentas.css";
 import ListaMovimientos from "../../components/Registro/ListaMovimientos";
 import RegistroCards from "../../components/Registro/RegistroCards";
 import BuscadorRegistro from "../../components/Registro/BuscadorRegistro";

@@ -1,149 +1,146 @@
-.home {
-    padding: 2rem;
-    width: 100%;
-    box-sizing: border-box;
-    animation: slide-up .35s ease;
-}
-
-/* ==========================
-   Bienvenida
-========================== */
-
-.welcome-section {
-    margin-bottom: 2.5rem;
-}
-
-.welcome-title {
-    margin-bottom: .75rem;
-}
-
-.welcome-subtitle {
-    margin-bottom: .2rem;
-    font-weight: 600;
-}
-
-.welcome-date {
-    font-weight: 500;
-    color: var(--text-secondary);
-}
-
-.kiosco-name {
-    font-weight: 700;
-    color: var(--color-primary);
-}
-
-/* ==========================
-   Acciones rápidas
-========================== */
-
-.quick-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-}
-
-.section-title {
-    font-size: 1.15rem;
-    font-weight: 700;
-}
-
-.quick-actions-list {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-}
-
-
-/* ==========================
-   Tarjetas
-========================== */
-
-.quick-action-card {
-
+.home-body-container {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
-    width: 100%;
-    box-sizing: border-box;
+    justify-content: space-between;
+    height: calc(100vh - 71px);
 
-
-    padding: 1.25rem;
-
-    background: var(--background-secondary);
-
-    border: 1px solid var(--border-color);
-    border-radius: .75rem;
-
-    text-decoration: none;
-
-    transition:
-        transform .2s ease,
-        border-color .2s ease,
-        box-shadow .2s ease;
+    /* padding: 90px 20px; */
+    
+    max-width: 1500px;
+    margin: 0 auto;
+    gap: 70px;
 }
 
-.quick-action-card:hover {
-    transform: translateY(-1px);
-    border-color: var(--border-focus);
-    /* box-shadow: 5px 5px rgba(0, 0, 0, 0.149); */
-}
-
-.quick-action-icon {
-
-    width: 44px;
-    height: 44px;
-
-    padding: .4rem;
-
-    border-radius: .5rem;
-
-    background: var(--color-primary-bg);
-
-    flex-shrink: 0;
-}
-
-.quick-action-content {
+.home-content {
     flex: 1;
 }
 
-.quick-action-header {
-
-    display: flex;
-    justify-content: space-between;
+.home-badge {
+    display: inline-flex;
     align-items: center;
-
-    margin-bottom: .4rem;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: var(--color-primary-smooth);
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: .95rem;
+    margin-bottom: 32px;
 }
 
-.quick-action-title {
-
+.home-title {
+    font-size: 4.4rem;
+    line-height: 1.05;
+    font-weight: 800;
     color: var(--text-primary);
-
-    font-size: 1.05rem;
-
-    font-weight: 700;
+    margin-bottom: 28px;
 }
 
-.quick-action-description {
+.home-title span {
+    font-size: 4rem;
+    color: var(--color-primary);
+}
 
+.home-description {
+    font-size: 1.4rem;
+    line-height: 1.8;
     color: var(--text-secondary);
-
-    line-height: 1.4;
+    margin-bottom: 45px;
 }
 
-.quick-action-arrow {
+.home-buttons {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 40px;
+}
 
+.home-buttons img {
+    padding: 5px;
+}
+
+.home-btn-primary,
+.home-btn-secondary {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    padding: 0 34px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-button);
+}
+
+.home-btn-primary {
+    border: none;
+    background: var(--color-primary);
+    color: var(--background-secondary);
+}
+
+.home-btn-primary:hover {
+    background: var(--color-primary-hover);
     transition: var(--transition-icon);
 }
 
-.quick-action-card:hover .quick-action-arrow {
-    filter: invert(15%) brightness(20%) contrast(100%);
+.home-btn-primary img {
+    filter: brightness(0) invert(1);
+}
+
+.home-btn-primary:hover .home-flecha-cont{
     animation: arrow-move var(--transition-fast) forwards;
 }
 
-.ql-body {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
+.home-btn-secondary {
+    background: var(--background-terciary);
+    border: 1px solid var(--border-hover);
+    color: var(--text-primary);
+}
+
+.home-btn-secondary:hover {
+    border-color: var(--color-primary);
+    background-color: var(--background-secondary);
+
+}
+
+.home-btn-secondary img {
+    height: 20px;
+    filter: brightness(0) invert(20%);
+}
+
+.home-benefits {
+    display: flex;
+    gap: 35px;
+    flex-wrap: wrap;
+}
+
+.benefit {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-placeholder);
+    font-size: 1rem;
+}
+
+.home-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.home-image img {
+    width: 100%;
+    max-width: 700px;
+    border-radius: 36px;
+    object-fit: cover;
+}
+
+/* Placeholder hasta implementar el carrusel */
+
+.home-image::before {
+    content: "";
+    width: 100%;
+    max-width: 700px;
+    aspect-ratio: 1 / 0.95;
+    border-radius: 36px;
+    background: #f4f4f4;
+    border: 2px dashed #d9d9d9;
 }

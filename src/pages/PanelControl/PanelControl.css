@@ -1,0 +1,149 @@
+.panel-control {
+    padding: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+    animation: slide-up .35s ease;
+}
+
+/* ==========================
+   Bienvenida
+========================== */
+
+.welcome-section {
+    margin-bottom: 2.5rem;
+}
+
+.welcome-title {
+    margin-bottom: .75rem;
+}
+
+.welcome-subtitle {
+    margin-bottom: .2rem;
+    font-weight: 600;
+}
+
+.welcome-date {
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.kiosco-name {
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+/* ==========================
+   Acciones rápidas
+========================== */
+
+.quick-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.section-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.quick-actions-list {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+
+/* ==========================
+   Tarjetas
+========================== */
+
+.quick-action-card {
+
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+
+
+    padding: 1.25rem;
+
+    background: var(--background-secondary);
+
+    border: 1px solid var(--border-color);
+    border-radius: .75rem;
+
+    text-decoration: none;
+
+    transition:
+        transform .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+.quick-action-card:hover {
+    transform: translateY(-1px);
+    border-color: var(--border-focus);
+    /* box-shadow: 5px 5px rgba(0, 0, 0, 0.149); */
+}
+
+.quick-action-icon {
+
+    width: 44px;
+    height: 44px;
+
+    padding: .4rem;
+
+    border-radius: .5rem;
+
+    background: var(--color-primary-bg);
+
+    flex-shrink: 0;
+}
+
+.quick-action-content {
+    flex: 1;
+}
+
+.quick-action-header {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: .4rem;
+}
+
+.quick-action-title {
+
+    color: var(--text-primary);
+
+    font-size: 1.05rem;
+
+    font-weight: 700;
+}
+
+.quick-action-description {
+
+    color: var(--text-secondary);
+
+    line-height: 1.4;
+}
+
+.quick-action-arrow {
+
+    transition: var(--transition-icon);
+}
+
+.quick-action-card:hover .quick-action-arrow {
+    filter: invert(15%) brightness(20%) contrast(100%);
+    animation: arrow-move var(--transition-fast) forwards;
+}
+
+.ql-body {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}

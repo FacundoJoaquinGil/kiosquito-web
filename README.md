@@ -6,6 +6,6 @@ Kiosquito es un proyecto personal desarrollado para la gestión de kioscos y peq
 
 ## 📸 Vista previa
 
-<img width="1437" height="898" alt="Diseño Home" src="https://github.com/user-attachments/assets/4e5733bf-8cd2-4069-997f-9f3f2a5d3a85" />
+<img width="1437" height="898" alt="Diseño PanelControl" src="https://github.com/user-attachments/assets/4e5733bf-8cd2-4069-997f-9f3f2a5d3a85" />
 
 ---
