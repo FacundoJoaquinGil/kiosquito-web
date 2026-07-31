@@ -1,27 +1,34 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Header from "./components/Header/Header";
-import Sidebar from "./components/Sidebar/Sidebar";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import DashboardLayout from "./layouts/DashboardLayout/DashboardLayout";
+
 import Home from "./pages/Home/Home";
+import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
+
+import PanelControl from "./pages/PanelControl/PanelControl";
 import Registro from "./pages/Registro";
 import Stock from "./pages/Stock";
 import Ventas from "./pages/Ventas";
 
 function App() {
   return (
-    <Router>
-      <Header />
-      <div className="flex">
-        <Sidebar />
-        <div className="content">
-          <Routes> 
-            <Route path="/" element={<Home />} />
-            <Route path="/Registro" element={<Registro />} />
-            <Route path="/Stock" element={<Stock />} />
-            <Route path="/Ventas" element={<Ventas />} />
-          </Routes>
-        </div>
-      </div>
-    </Router>
+    <BrowserRouter>
+      <Routes>
+        {/* Públicas */}
+        <Route path="/*" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+
+        {/* Privadas */}
+        <Route element={<DashboardLayout />}>
+          <Route path="/panel-control" element={<PanelControl />} />
+          <Route path="/registro" element={<Registro />} />
+          <Route path="/stock" element={<Stock />} />
+          <Route path="/ventas" element={<Ventas />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

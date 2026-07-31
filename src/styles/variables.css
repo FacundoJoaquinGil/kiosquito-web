@@ -4,6 +4,7 @@
   ======================================================= */
 
   --color-primary: #fa7317;
+  --color-primary-smooth: #feeee3;
   --color-primary-hover: #e85d04;
   --color-primary-bg: #fef0e7;
 
@@ -30,7 +31,9 @@
 
   --text-primary: #333;      
   --text-secondary: #5e6e78;    
+  --text-terciary: #ffff;
   --text-placeholder: #a0aec0;
+
   
   /* =======================================================
      BORDES

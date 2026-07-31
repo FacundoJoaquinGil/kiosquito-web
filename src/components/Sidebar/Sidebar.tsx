@@ -1,6 +1,6 @@
 import "./Sidebar.css";
 import { NavLink } from "react-router-dom";
-import home from "../../assets/images/home.svg";
+import panelControl from "../../assets/images/panel-control.svg";
 import stock from "../../assets/images/stock.svg";
 import carrito from "../../assets/images/carrito.svg";
 import registro from "../../assets/images/registro.svg";
@@ -13,8 +13,8 @@ const Sidebar = () => {
         <p className="menu-sidebar">MENU</p>
         <ul>
           <li>
-            <NavLink to="/" className="sidebar-link">
-              <img src={home} alt="icono-home" />
+            <NavLink to="/panel-control" className="sidebar-link">
+              <img src={panelControl} alt="icono-panel-control" />
               <div className="link-cont">
                 <span>Inicio</span>
                 <p className="li-p">Panel de control</p>
@@ -22,7 +22,7 @@ const Sidebar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/Stock" className="sidebar-link">
+            <NavLink to="/stock" className="sidebar-link">
               <img src={stock} alt="icono-stock" />
               <div className="link-cont">
                 <span>Stock</span>
@@ -31,7 +31,7 @@ const Sidebar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/Ventas" className="sidebar-link">
+            <NavLink to="/ventas" className="sidebar-link">
               <img src={carrito} alt="icono-carrito" />
               <div className="link-cont">
                 <span>Ventas</span>
@@ -40,7 +40,7 @@ const Sidebar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/Registro" className="sidebar-link">
+            <NavLink to="/registro" className="sidebar-link">
               <img src={registro} alt="icono-registro" />
               <div className="link-cont">
                 <span>Registro</span>
