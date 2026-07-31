@@ -1,16 +1,23 @@
 import { useState, useEffect } from "react";
 import "./Registro.css";
-import billetera from "../../assets/images/billetera.svg";
-import grafico from "../../assets/images/grafico.svg";
-import registrodia from "../../assets/images/registrodia.svg";
+import ListaMovimientos from "../../components/Registro/ListaMovimientos";
+import RegistroCards from "../../components/Registro/RegistroCards";
+import BuscadorRegistro from "../../components/Registro/BuscadorRegistro";
+import FiltrosRegistro from "../../components/Registro/FiltrosRegistro";
+import Paginacion from "../../components/Registro/Paginacion";
+import { formatearDinero } from "../../utils/formatearDinero";
 
 import { MOVIMIENTOS_MOCK, type Movimiento } from "../../data/movimientosMock";
+
+  const MOVIMIENTOS_POR_PAGINA = 10;
 
 const Registro = () => {
   const [movimientos, setMovimientos] = useState<Movimiento[]>([]);
   const [filtroActivo, setFiltroActivo] = useState<string>("Todos");
   const [busqueda, setBusqueda] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
+  const [paginaActual, setPaginaActual] = useState(1);
+
 
   useEffect(() => {
     const obtenerMovimientos = () => {
@@ -23,25 +30,7 @@ const Registro = () => {
     obtenerMovimientos();
   }, []);
 
- useEffect(() => {
-  const contenedorFlex = document.querySelector(".flex");
-  const contenedorContent = document.querySelector(".content");
 
-  document.body.classList.add("no-scroll-global");
-
-  if (contenedorFlex && contenedorContent) {
-    contenedorFlex.classList.add("layout-registro-activo");
-    contenedorContent.classList.add("scroll-registro-activo");
-  }
-  return () => {
-    document.body.classList.remove("no-scroll-global");
-
-    if (contenedorFlex && contenedorContent) {
-      contenedorFlex.classList.remove("layout-registro-activo");
-      contenedorContent.classList.remove("scroll-registro-activo");
-    }
-  };
-}, []);
   const ventasHoy = movimientos.filter((m) => m.tipo === "venta").length;
 
   const ingresosHoy = movimientos
@@ -65,13 +54,39 @@ const movimientosFiltrados = movimientos.filter((mov) => {
 
   return coincideFiltro && coincideBusqueda;
 });
-  const formatearDinero = (valor: number) => {
-    return new Intl.NumberFormat("es-AR", {
-      style: "currency",
-      currency: "ARS",
-      minimumFractionDigits: 0,
-    }).format(valor);
-  };
+
+const totalPaginas = Math.ceil(
+  movimientosFiltrados.length / MOVIMIENTOS_POR_PAGINA
+);
+
+const movimientosPaginados = movimientosFiltrados.slice(
+  (paginaActual - 1) * MOVIMIENTOS_POR_PAGINA,
+  paginaActual * MOVIMIENTOS_POR_PAGINA
+);
+
+  useEffect(() => {
+    const contenedorFlex = document.querySelector(".flex");
+    const contenedorContent = document.querySelector(".content");
+
+    document.body.classList.add("no-scroll-global");
+
+    if (contenedorFlex && contenedorContent) {
+      contenedorFlex.classList.add("layout-registro-activo");
+      contenedorContent.classList.add("scroll-registro-activo");
+    }
+    return () => {
+      document.body.classList.remove("no-scroll-global");
+
+      if (contenedorFlex && contenedorContent) {
+        contenedorFlex.classList.remove("layout-registro-activo");
+        contenedorContent.classList.remove("scroll-registro-activo");
+        }
+      };
+    }, []);
+
+  useEffect(() => {
+      setPaginaActual(1);
+  }, [busqueda, filtroActivo]);
 
   return (
     <div className="registro-container">
@@ -80,34 +95,11 @@ const movimientosFiltrados = movimientos.filter((mov) => {
         <p>Revisá ventas, ingresos y movimientos de hoy.</p>
       </div>
 
-      <div className="registro-cards">
-        <div className="card">
-          <div className="card-header">
-            <span className="card-title">Ventas de hoy</span>
-            <img src={registrodia} alt="icono-registrodia" />
-          </div>
-          <h3 className="card-value">{ventasHoy}</h3>
-          <p className="card-sub-green">+3 vs. ayer</p>
-        </div>
-
-        <div className="card">
-          <div className="card-header">
-            <span className="card-title">Ingresos del día</span>
-            <img src={grafico} alt="icono-grafico" />
-          </div>
-          <h3 className="card-value">{formatearDinero(ingresosHoy)}</h3>
-          <p className="card-sub-green">+12% vs. ayer</p>
-        </div>
-
-        <div className="card">
-          <div className="card-header">
-            <span className="card-title">Caja actual</span>
-            <img src={billetera} alt="icono-billetera" />
-          </div>
-          <h3 className="card-value">{formatearDinero(cajaActual)}</h3>
-          <p className="card-sub-gray">Actualizado hace un momento</p>
-        </div>
-      </div>
+      <RegistroCards
+        ventasHoy={ventasHoy}
+        ingresosHoy={formatearDinero(ingresosHoy)}
+        cajaActual={formatearDinero(cajaActual)}
+      />
 
       <div className="movimientos-section">
         <div className="movimientos-header">
@@ -115,79 +107,29 @@ const movimientosFiltrados = movimientos.filter((mov) => {
             <h3>Movimientos</h3>
             <p>Últimas ventas y movimientos registrados</p>
           </div>
-          <div className="search-container">
-            <span className="search-icon">🔍</span>
-            <input
-              type="text"
-              placeholder="Buscar movimiento..."
-              className="search-input"
-              value={busqueda}
-              onChange={(e) => setBusqueda(e.target.value)}
-            />
-          </div>
+          <BuscadorRegistro
+            busqueda={busqueda}
+            setBusqueda={setBusqueda}
+          />
         </div>
 
-        <div className="filtros">
-          {["Todos", "Ventas", "Ingresos", "Egresos"].map((filtro) => (
-            <button
-              key={filtro}
-              className={`filtro-btn ${filtroActivo === filtro ? "active" : ""}`}
-              onClick={() => setFiltroActivo(filtro)}
-            >
-              {filtro}
-            </button>
-          ))}
-        </div>
+        <FiltrosRegistro
+          filtroActivo={filtroActivo}
+          setFiltroActivo={setFiltroActivo}
+        />
 
-        <div className="lista-movimientos">
-          {loading ? (
-            <p style={{ textAlign: "center", padding: "20px", color: "#64748b" }}>
-              Cargando movimientos...
-            </p>
-          ) : movimientosFiltrados.length === 0 ? (
-            <p style={{ textAlign: "center", padding: "20px", color: "#64748b" }}>
-              No se encontraron movimientos.
-            </p>
-          ) : (
-            movimientosFiltrados.map((mov) => {
-              let avatarClass = "movimiento-avatar bg-gray";
-              let avatarContent: string | number = mov.id;
+        <ListaMovimientos
+          loading={loading}
+          movimientos={movimientosPaginados}
+          formatearDinero={formatearDinero}
+        />
 
-              if (mov.tipo === "ingreso") {
-                avatarClass = "movimiento-avatar bg-green-light";
-                avatarContent = "⬇";
-              } else if (mov.tipo === "egreso") {
-                avatarClass = "movimiento-avatar bg-red-light";
-                avatarContent = "⬆";
-              }
+        <Paginacion
+          paginaActual={paginaActual}
+          totalPaginas={totalPaginas}
+          onCambiarPagina={setPaginaActual}
+        />
 
-              const esEgreso = mov.tipo === "egreso";
-              const montoClase = esEgreso ? "monto negativo" : "monto positivo";
-              const prefijoMonto = esEgreso ? "-" : "+";
-
-              return (
-                <div className="movimiento-row" key={mov.id}>
-                  <div className="movimiento-left">
-                    <div className={avatarClass}>{avatarContent}</div>
-                    <div className="movimiento-info">
-                      <strong>{mov.descripcion}</strong>
-                      <span>
-                        {mov.detalle_adicional ||
-                          (mov.tipo === "venta"
-                            ? `Venta #${mov.id}`
-                            : `${mov.tipo.charAt(0).toUpperCase() + mov.tipo.slice(1)} manual`)}{" "}
-                        · {mov.hora} hs
-                      </span>
-                    </div>
-                  </div>
-                  <span className={montoClase}>
-                    {prefijoMonto} {formatearDinero(mov.monto)}
-                  </span>
-                </div>
-              );
-            })
-          )}
-        </div>
       </div>
     </div>
   );
