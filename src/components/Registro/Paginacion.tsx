@@ -1,3 +1,6 @@
+import "./RegistroComponents.css";
+import { obtenerPaginasVisibles } from "../../utils/obtenerPaginasVisibles";
+
 interface PaginacionProps {
   paginaActual: number;
   totalPaginas: number;
@@ -11,30 +14,46 @@ const Paginacion = ({
 }: PaginacionProps) => {
   if (totalPaginas <= 1) return null;
 
+  const paginas = obtenerPaginasVisibles(
+    paginaActual,
+    totalPaginas
+  );
+
   return (
     <div className="paginacion">
       <button
         disabled={paginaActual === 1}
         onClick={() => onCambiarPagina(paginaActual - 1)}
       >
-        Anterior
+        ← Anterior
       </button>
 
-      {Array.from({ length: totalPaginas }, (_, i) => (
-        <button
-          key={i}
-          className={paginaActual === i + 1 ? "activo" : ""}
-          onClick={() => onCambiarPagina(i + 1)}
-        >
-          {i + 1}
-        </button>
-      ))}
+      {paginas.map((pagina, index) =>
+        pagina === "..." ? (
+          <span
+            key={`ellipsis-${index}`}
+            className="paginacion-puntos"
+          >
+            ...
+          </span>
+        ) : (
+          <button
+            key={pagina}
+            className={
+              paginaActual === pagina ? "activo" : ""
+            }
+            onClick={() => onCambiarPagina(pagina)}
+          >
+            {pagina}
+          </button>
+        )
+      )}
 
       <button
         disabled={paginaActual === totalPaginas}
         onClick={() => onCambiarPagina(paginaActual + 1)}
       >
-        Siguiente
+        Siguiente →
       </button>
     </div>
   );
