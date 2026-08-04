@@ -4,8 +4,6 @@
     justify-content: space-between;
     height: calc(100vh - 71px);
 
-    /* padding: 90px 20px; */
-    
     max-width: 1500px;
     margin: 0 auto;
     gap: 70px;
@@ -18,39 +16,39 @@
 .home-badge {
     display: inline-flex;
     align-items: center;
-    padding: 10px 18px;
+    padding: 9px 17px;
     border-radius: 999px;
     background: var(--color-primary-smooth);
     color: var(--color-primary);
     font-weight: 600;
-    font-size: .95rem;
-    margin-bottom: 32px;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
 }
 
 .home-title {
-    font-size: 4.4rem;
+    font-size: 4.15rem;
     line-height: 1.05;
     font-weight: 800;
     color: var(--text-primary);
-    margin-bottom: 28px;
+    margin-bottom: 26px;
 }
 
 .home-title span {
-    font-size: 4rem;
+    font-size: 3.8rem;
     color: var(--color-primary);
 }
 
 .home-description {
-    font-size: 1.4rem;
-    line-height: 1.8;
+    font-size: 1.3rem;
+    line-height: 1.75;
     color: var(--text-secondary);
-    margin-bottom: 45px;
+    margin-bottom: 42px;
 }
 
 .home-buttons {
     display: flex;
     gap: 18px;
-    margin-bottom: 40px;
+    margin-bottom: 38px;
 }
 
 .home-buttons img {
@@ -61,10 +59,11 @@
 .home-btn-secondary {
     display: flex;
     align-items: center;
-    height: 60px;
-    padding: 0 34px;
+    justify-content: center;
+    height: 58px;
+    padding: 0 32px;
     border-radius: 10px;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 600;
     cursor: pointer;
     transition: var(--transition-button);
@@ -85,7 +84,7 @@
     filter: brightness(0) invert(1);
 }
 
-.home-btn-primary:hover .home-flecha-cont{
+.home-btn-primary:hover .home-flecha-cont {
     animation: arrow-move var(--transition-fast) forwards;
 }
 
@@ -98,49 +97,23 @@
 .home-btn-secondary:hover {
     border-color: var(--color-primary);
     background-color: var(--background-secondary);
-
 }
 
 .home-btn-secondary img {
-    height: 20px;
+    height: 19px;
     filter: brightness(0) invert(20%);
 }
 
 .home-benefits {
     display: flex;
-    gap: 35px;
+    gap: 32px;
     flex-wrap: wrap;
 }
 
 .benefit {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 9px;
     color: var(--text-placeholder);
-    font-size: 1rem;
-}
-
-.home-image {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.home-image img {
-    width: 100%;
-    max-width: 700px;
-    border-radius: 36px;
-    object-fit: cover;
-}
-
-/* Placeholder hasta implementar el carrusel */
-
-.home-image::before {
-    content: "";
-    width: 100%;
-    max-width: 700px;
-    aspect-ratio: 1 / 0.95;
-    border-radius: 36px;
-    background: #f4f4f4;
-    border: 2px dashed #d9d9d9;
+    font-size: 0.98rem;
 }

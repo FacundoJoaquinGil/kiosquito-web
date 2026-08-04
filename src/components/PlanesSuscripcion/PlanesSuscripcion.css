@@ -1,0 +1,136 @@
+.planes {
+    height: 100vh;
+    background: var(--background-secondary);
+}
+
+.planes-header {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.planes-tag {
+    display: inline-block;
+    background: rgba(250, 115, 23, .12);
+    color: #fa7317;
+    font-weight: 600;
+    padding: 8px 18px;
+    border-radius: 999px;
+    margin: 20px;
+}
+
+.planes-header h2 {
+    font-size: 2.6rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.planes-header p {
+    color: #5e6e78;
+    max-width: 650px;
+    margin: auto;
+    line-height: 1.6;
+}
+
+.planes-grid {
+    max-width: 1250px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 35px;
+}
+
+.plan-card {
+    background: var(--background-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 22px;
+    padding: 45px 35px;
+    position: relative;
+    transition: var(--transition-normal);
+
+    display: flex;
+    flex-direction: column;
+}
+
+.plan-card.featured {
+    border: 1px solid #fa7317;
+    transform: scale(1.05);
+}
+
+.plan-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: #fa7317;
+    color: white;
+
+    font-size: .9rem;
+    font-weight: 600;
+
+    padding: 8px 18px;
+    border-radius: 999px;
+}
+
+.plan-card h3 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.plan-price {
+    margin-bottom: 35px;
+}
+
+.plan-price span {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fa7317;
+}
+
+.plan-price small {
+    color: #666;
+    margin-left: 6px;
+}
+
+.plan-card ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 40px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.plan-card li {
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.plan-card button {
+    width: 100%;
+    padding: 15px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: #fa7317;
+    color: white;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .25s;
+
+    margin-top: auto;
+}
+
+.plan-card button:hover {
+    background: #e65f00;
+}

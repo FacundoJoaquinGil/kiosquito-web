@@ -1,9 +1,13 @@
 import "./Home.css";
 import Hero from "../../components/Hero/Hero";
-import swip1 from "../../assets/images/swip-1.webp";
 import flecha from "../../assets/images/flecha.svg";
 import user from "../../assets/images/user.svg";
 import check from "../../assets/images/check.svg";
+import Carousel from "../../components/Carousel/Carousel";
+import PlanesSuscripcion from "../../components/PlanesSuscripcion/PlanesSuscripcion";
+import Beneficios from "../../components/Beneficios/Beneficios";
+import Footer from "../../components/Footer/Footer";
+import ComoFunciona from "../../components/ComoFunciona/ComoFunciona";
 
 const Home = () => {
   return (
@@ -56,15 +60,14 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="home-image">
+        <Carousel/>
 
-          {/* SWIPPER O CAROUSEL */}
-
-          {/* Acá va el carrusel más adelante */}
-
-          {/* <img src={swip1} alt="Kiosquito" /> */}
-        </div>
       </section>
+
+      <ComoFunciona/>
+      <Beneficios/>
+      <PlanesSuscripcion/>
+      <Footer/>
     </>
   );
 };
