@@ -1,0 +1,88 @@
+import { Producto } from "./types";
+
+export const PRODUCTOS_MOCK: Producto[] = [
+  {
+    id: 1,
+    nombre: "Coca Cola 500ml",
+    categoria: "Bebidas",
+    precio: 1800,
+    stock: 30,
+  },
+  {
+    id: 2,
+    nombre: "Sprite 500ml",
+    categoria: "Bebidas",
+    precio: 1700,
+    stock: 25,
+  },
+  {
+    id: 3,
+    nombre: "Fanta 500ml",
+    categoria: "Bebidas",
+    precio: 1700,
+    stock: 20,
+  },
+  {
+    id: 4,
+    nombre: "Agua Mineral",
+    categoria: "Bebidas",
+    precio: 1200,
+    stock: 40,
+  },
+  {
+    id: 5,
+    nombre: "Papas Lays",
+    categoria: "Snacks",
+    precio: 2200,
+    stock: 15,
+  },
+  {
+    id: 6,
+    nombre: "Doritos",
+    categoria: "Snacks",
+    precio: 2500,
+    stock: 12,
+  },
+  {
+    id: 7,
+    nombre: "Maní",
+    categoria: "Snacks",
+    precio: 1300,
+    stock: 18,
+  },
+  {
+    id: 8,
+    nombre: "Chocolate Milka",
+    categoria: "Golosinas",
+    precio: 2800,
+    stock: 22,
+  },
+  {
+    id: 9,
+    nombre: "Alfajor Jorgito",
+    categoria: "Golosinas",
+    precio: 900,
+    stock: 40,
+  },
+  {
+    id: 10,
+    nombre: "Bon o Bon",
+    categoria: "Golosinas",
+    precio: 700,
+    stock: 35,
+  },
+  {
+    id: 11,
+    nombre: "Marlboro Box",
+    categoria: "Cigarrillos",
+    precio: 4500,
+    stock: 20,
+  },
+  {
+    id: 12,
+    nombre: "Lucky Strike",
+    categoria: "Cigarrillos",
+    precio: 4300,
+    stock: 18,
+  },
+];

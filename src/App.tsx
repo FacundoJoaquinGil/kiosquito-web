@@ -4,7 +4,7 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import Home from "./pages/Home/Home";
 import Registro from "./pages/Registro";
 import Stock from "./pages/Stock";
-import Ventas from "./pages/Ventas";
+import Ventas from "./pages/Ventas/Ventas";
 
 function App() {
   return (
