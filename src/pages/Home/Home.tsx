@@ -8,6 +8,7 @@ import PlanesSuscripcion from "../../components/PlanesSuscripcion/PlanesSuscripc
 import Beneficios from "../../components/Beneficios/Beneficios";
 import Footer from "../../components/Footer/Footer";
 import ComoFunciona from "../../components/ComoFunciona/ComoFunciona";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -30,16 +31,15 @@ const Home = () => {
           </p>
 
           <div className="home-buttons">
+            <Link to="/registro-login" className="home-btn-primary">
+              Comenzar gratis
+              <img className="home-flecha-cont" src={flecha} alt="" />
+            </Link>
 
-            <button className="home-btn-primary">
-              Crear mi cuenta
-              <img src={flecha} alt="" className="home-flecha-cont"/>
-            </button>
-
-            <button className="home-btn-secondary">
+            <Link to="/login" className="home-btn-secondary">
               Ya tengo cuenta
               <img src={user} alt="" />
-            </button>
+            </Link>
           </div>
 
           <div className="home-benefits">
@@ -60,14 +60,14 @@ const Home = () => {
           </div>
         </div>
 
-        <Carousel/>
-
+        <Carousel />
       </section>
+  
+      <Beneficios />
+      <ComoFunciona />
+      <PlanesSuscripcion />
 
-      <ComoFunciona/>
-      <Beneficios/>
-      <PlanesSuscripcion/>
-      <Footer/>
+      <Footer />
     </>
   );
 };

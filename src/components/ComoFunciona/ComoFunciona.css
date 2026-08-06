@@ -1,58 +1,52 @@
 .como-funciona {
-    height: 100vh;
-    background: var(--background-secondary);
-    margin: 0 auto;
-
-    display: flex;
-    align-items: center;
-    
+    background: var(--background-main);
+    padding: 120px 30px;
+    position: relative;
 }
 
 .como-funciona-container {
-    max-width: 1250px;
+    max-width: 1300px;
     margin: 0 auto;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
-    gap: 80px;
+    gap: 100px;
 }
 
 .como-funciona-content {
     flex: 1;
+    max-width: 560px;
 }
 
 .como-tag {
     display: inline-block;
     padding: 8px 18px;
-
     border-radius: 999px;
-
-    background: rgba(250, 115, 23, .12);
+    background: var(--color-primary-smooth);
     color: var(--color-primary);
-
     font-weight: 600;
-
-    margin-bottom: 20px;
+    margin-bottom: 24px;
 }
 
 .como-funciona-content h2 {
-    font-size: 3rem;
+    font-size: 3.4rem;
+    line-height: 1.1;
+    margin-bottom: 24px;
     color: var(--text-primary);
-    margin-bottom: 18px;
 }
 
-.como-funciona-content>p {
+.como-funciona-content > p {
+    font-size: 1.1rem;
+    line-height: 1.8;
     color: var(--text-secondary);
-    margin-bottom: 50px;
-    line-height: 1.7;
+    margin-bottom: 60px;
 }
 
 .pasos {
     display: flex;
     flex-direction: column;
-    gap: 28px;
+    gap: 34px;
 }
 
 .paso {
@@ -62,28 +56,27 @@
 }
 
 .paso-numero {
-    min-width: 54px;
-    min-height: 54px;
+    width: 54px;
+    height: 54px;
 
     border-radius: 50%;
-
     background: var(--color-primary);
-    color: white;
+    color: var(--background-secondary);
 
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 
     font-size: 1.25rem;
     font-weight: 700;
 
-    box-shadow: 0 10px 25px rgba(250, 115, 23, .2);
+    flex-shrink: 0;
 }
 
 .paso-info h3 {
-    font-size: 1.4rem;
-    color: var(--text-primary);
+    font-size: 1.45rem;
     margin-bottom: 8px;
+    color: var(--text-primary);
 }
 
 .paso-info p {
@@ -93,14 +86,13 @@
 
 .como-funciona-imagen {
     flex: 1;
-
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.como-funciona-imagen img {
+.como-funciona-imagen svg {
     width: 100%;
-    max-width: 500px;
+    max-width: 560px;
+    height: auto;
 }
-

@@ -1,5 +1,6 @@
 import "./Hero.css";
 import logo from "../../assets/images/Logo.svg";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -9,7 +10,6 @@ const Hero = () => {
           <img src={logo} alt="Kiosquito" />
         </div>
 
-        {/* Navegación */}
         <nav className="hero-nav">
           <a href="#beneficios">Beneficios</a>
           <a href="#como-funciona">Cómo funciona</a>
@@ -17,14 +17,16 @@ const Hero = () => {
         </nav>
 
         <div className="hero-actions">
-          <button className="btn-login">
+          <Link to="/login" className="btn-login">
             Iniciar Sesión
-          </button>
+          </Link>
 
-          <button className="btn-register">
+          <Link to="/registro-login" className="btn-register">
             Crear Cuenta
-          </button>
+          </Link>
         </div>
+
+       
       </div>
     </header>
   );

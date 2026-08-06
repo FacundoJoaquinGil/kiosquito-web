@@ -1,7 +1,5 @@
 .footer {
-    margin-top: 120px;
-    background: var(--background-secondary);
-    border-top: 1px solid var(--border-color);
+    background: var(--background-dark);
 }
 
 .footer-container {
@@ -26,7 +24,7 @@
 }
 
 .footer-brand p {
-    color: var(--text-secondary);
+    color: var(--text-terciary);
     line-height: 1.7;
 }
 
@@ -43,58 +41,35 @@
 }
 
 .footer-column h4 {
-    color: var(--text-primary);
+    margin: 0;
     margin-bottom: 6px;
+    color: var(--color-primary);
+    font-size: 1.05rem;
 }
 
 .footer-column a {
     text-decoration: none;
-    color: var(--text-secondary);
+    color: var(--text-terciary);
     transition: var(--transition-fast);
 }
 
 .footer-column a:hover {
-    color: var(--color-primary);
+    color: var(--color-primary-smooth);
 }
 
-.footer-bottom {
-    border-top: 1px solid var(--border-color);
-    padding: 35px 20px;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 35px;
-
-    max-width: 1250px;
-    margin: 0 auto;
-}
-
-.footer-bottom>p {
-    color: var(--text-secondary);
-}
-
-.footer-developers {
-    display: flex;
-    gap: 60px;
-    flex-wrap: wrap;
-}
+/* ===== Desarrolladores ===== */
 
 .developer {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
 }
 
-.developer span {
-    font-size: .9rem;
-    color: var(--text-secondary);
-}
-
-.developer h4 {
-    color: var(--text-primary);
+.developer h5 {
+    margin: 0;
     font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-terciary);
 }
 
 .developer-links {
@@ -105,7 +80,7 @@
 
 .developer-links a {
     text-decoration: none;
-    color: var(--text-secondary);
+    color: var(--text-terciary);
     transition: var(--transition-fast);
 }
 
@@ -115,4 +90,24 @@
 
 .developer-links span {
     color: var(--text-secondary);
+}
+
+/* ===== Footer inferior ===== */
+
+.footer-bottom {
+    border-top: 1px solid var(--border-color);
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 35px 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-bottom p {
+    color: var(--text-terciary);
+    margin: 0;
 }

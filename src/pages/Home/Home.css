@@ -7,6 +7,7 @@
     max-width: 1500px;
     margin: 0 auto;
     gap: 70px;
+    animation: fade-in .35s ease;
 }
 
 .home-content {
@@ -43,6 +44,7 @@
     line-height: 1.75;
     color: var(--text-secondary);
     margin-bottom: 42px;
+    font-weight: 500;
 }
 
 .home-buttons {
@@ -60,13 +62,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 4px;
     height: 58px;
-    padding: 0 32px;
+    padding: 0 20px;
     border-radius: 10px;
     font-size: 1.05rem;
     font-weight: 600;
     cursor: pointer;
-    transition: var(--transition-button);
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: var(--transition-fast);
 }
 
 .home-btn-primary {
@@ -89,14 +94,19 @@
 }
 
 .home-btn-secondary {
-    background: var(--background-terciary);
+    background: var(--background-secondary);
     border: 1px solid var(--border-hover);
     color: var(--text-primary);
 }
 
 .home-btn-secondary:hover {
     border-color: var(--color-primary);
-    background-color: var(--background-secondary);
+    color: var(--color-primary);
+}
+
+.home-btn-secondary:hover img,
+.home-btn-secondary:hover svg {
+    filter: invert(54%) sepia(94%) saturate(1876%) hue-rotate(352deg) brightness(101%) contrast(96%);
 }
 
 .home-btn-secondary img {
@@ -114,6 +124,7 @@
     display: flex;
     align-items: center;
     gap: 9px;
-    color: var(--text-placeholder);
-    font-size: 0.98rem;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    font-weight: 500;
 }

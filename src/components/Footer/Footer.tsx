@@ -38,59 +38,63 @@ const Footer = () => {
 
                     </div>
 
-                    <div className="developer">
+                    <div className="footer-column developers-column">
 
-                        <span>Desarrollado por</span>
+    <h4>Desarrollado por</h4>
 
-                        <h4>Joaquin Gil</h4>
+    <div className="developer">
 
-                        <div className="developer-links">
-                            <a
-                                href="https://github.com/TU_GITHUB"
-                                target="_blank"
-                                rel="noreferrer"
-                            >
-                                GitHub
-                            </a>
+        <h5>Joaquín Gil</h5>
 
-                            <span>|</span>
+        <div className="developer-links">
+            <a
+                href="https://github.com/TU_GITHUB"
+                target="_blank"
+                rel="noreferrer"
+            >
+                GitHub
+            </a>
 
-                            <a
-                                href="https://linkedin.com/in/TU_LINKEDIN"
-                                target="_blank"
-                                rel="noreferrer"
-                            >
-                                LinkedIn
-                            </a>
-                        </div>
+            <span>|</span>
 
-                    </div>
+            <a
+                href="https://linkedin.com/in/TU_LINKEDIN"
+                target="_blank"
+                rel="noreferrer"
+            >
+                LinkedIn
+            </a>
+        </div>
 
-                    <div className="developer">
+    </div>
 
-                        <h4>Matias Bordenave</h4>
+    <div className="developer">
 
-                        <div className="developer-links">
-                            <a
-                                href="https://github.com/TU_GITHUB"
-                                target="_blank"
-                                rel="noreferrer"
-                            >
-                                GitHub
-                            </a>
+        <h5>Matías Bordenave</h5>
 
-                            <span>|</span>
+        <div className="developer-links">
+            <a
+                href="https://github.com/TU_GITHUB"
+                target="_blank"
+                rel="noreferrer"
+            >
+                GitHub
+            </a>
 
-                            <a
-                                href="https://linkedin.com/in/TU_LINKEDIN"
-                                target="_blank"
-                                rel="noreferrer"
-                            >
-                                LinkedIn
-                            </a>
-                        </div>
+            <span>|</span>
 
-                    </div>
+            <a
+                href="https://linkedin.com/in/TU_LINKEDIN"
+                target="_blank"
+                rel="noreferrer"
+            >
+                LinkedIn
+            </a>
+        </div>
+
+    </div>
+
+</div>
 
                 </div>
 
