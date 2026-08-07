@@ -11,7 +11,22 @@ import Stock from "./pages/Stock";
 import Ventas from "./pages/Ventas";
 import RegistroLogin from "./pages/RegistroLogin/RegistroLogin";
 
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+
 function App() {
+
+  useEffect(() => {
+        AOS.init({
+            duration: 800,
+            once: false,
+            offset: 100,
+        });
+    }, []);
+
+
   return (
     <BrowserRouter>
       <Routes>

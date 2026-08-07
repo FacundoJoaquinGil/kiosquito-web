@@ -55,7 +55,7 @@ const PlanesSuscripcion = () => {
     return (
         <section className="planes" id="planes">
 
-            <div className="planes-header">
+            <div className="planes-header" data-aos="zoom-in">
                 <span className="planes-tag">
                     Planes
                 </span>
@@ -69,13 +69,13 @@ const PlanesSuscripcion = () => {
                 </p>
             </div>
 
-            <div className="planes-grid">
+            <div className="planes-grid" >
 
                 {planes.map((plan) => (
 
                     <div
                         key={plan.nombre}
-                        className={`plan-card ${plan.destacado ? "featured" : ""}`}
+                        className={`plan-card ${plan.destacado ? "featured" : ""}`} data-aos="fade-up"
                     >
 
                         {plan.destacado &&

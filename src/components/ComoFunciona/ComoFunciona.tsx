@@ -37,9 +37,9 @@ const ComoFunciona = () => {
   }, []);
 
   return (
-    <section className="como-funciona" id="como-funciona">
+    <section className="como-funciona" id="como-funciona" >
       <div className="como-funciona-container">
-        <div className="como-funciona-content">
+        <div className="como-funciona-content" data-aos="fade-right">
           <span className="como-tag">Cómo funciona</span>
 
           <h2>Empezá en 3 pasos</h2>
@@ -61,7 +61,7 @@ const ComoFunciona = () => {
           </div>
         </div>
 
-        <div className="como-funciona-imagen" ref={animationContainer} />
+        <div className="como-funciona-imagen" ref={animationContainer} data-aos="fade-left" />
       </div>
 
       

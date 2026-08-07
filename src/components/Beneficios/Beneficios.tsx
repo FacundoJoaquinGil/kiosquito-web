@@ -35,28 +35,36 @@ const beneficios = [
 const Beneficios = () => {
   return (
     <section className="beneficioss" id="beneficios">
-      <div className="beneficioss-header">
+      
+      <div className="beneficioss-header" data-aos="zoom-in" >
+        
         <h2>Todo lo que tu kiosco necesita</h2>
 
         <p>
           Herramientas pensadas para el día a día real de un kiosco, sin
           vueltas.
         </p>
+
       </div>
 
       <div className="beneficioss-grid">
-        {beneficios.map((item) => (
-          <article className="beneficios-card" key={item.titulo}>
-            <div className="beneficios-icono">
-              <img src={item.icono} alt={item.titulo} />
-            </div>
-
-            <h3>{item.titulo}</h3>
-
-            <p>{item.descripcion}</p>
-          </article>
-        ))}
+  {beneficios.map((item, index) => (
+    <article
+      className="beneficios-card"
+      key={item.titulo}
+      data-aos="flip-down"
+      data-aos-delay={index * 200}
+    >
+      <div className="beneficios-icono">
+        <img src={item.icono} alt={item.titulo} />
       </div>
+
+      <h3>{item.titulo}</h3>
+
+      <p>{item.descripcion}</p>
+    </article>
+  ))}
+</div>
 
       <svg
         className="wave-1"

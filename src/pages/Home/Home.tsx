@@ -16,21 +16,25 @@ const Home = () => {
       <Hero />
       <section className="home-body-container">
         <div className="home-content">
-          <span className="home-badge">La app para tu kiosco de barrio</span>
+          <span className="home-badge" data-aos="fade-down">La app para tu kiosco de barrio</span>
 
-          <h1 className="home-title">
+          <h1 className="home-title" data-aos="fade-right">
             Gestioná tu kiosco
             <br />
             <span>sin complicaciones</span>
           </h1>
 
-          <p className="home-description">
+          <p className="home-description" data-aos="fade-up" data-aos-delay="250">
             Controlá tu stock, registrá cada venta y mirá cómo va tu día en un
             solo lugar. kiosquito es simple, rápido y funciona desde el celular
             o la compu.
           </p>
 
-          <div className="home-buttons">
+          <div
+    className="home-buttons"
+    data-aos="fade-up"
+    data-aos-delay="400"
+>
             <Link to="/registro-login" className="home-btn-primary">
               Comenzar gratis
               <img className="home-flecha-cont" src={flecha} alt="" />
@@ -42,7 +46,7 @@ const Home = () => {
             </Link>
           </div>
 
-          <div className="home-benefits">
+          <div className="home-benefits" data-aos="fade-up" data-aos-delay="550">
             <div className="benefit">
               <img src={check} alt="" />
               <span>Gratis para empezar</span>
