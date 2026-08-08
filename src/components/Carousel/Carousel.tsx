@@ -24,7 +24,7 @@ const Carousel = () => {
     }, []);
 
     return (
-        <section className="carousel">
+        <section className="carousel" data-aos="zoom-in-left" data-aos-delay="250">
             <div
                 className="carousel-track"
                 style={{

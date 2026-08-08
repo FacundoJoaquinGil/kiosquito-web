@@ -35,36 +35,33 @@ const beneficios = [
 const Beneficios = () => {
   return (
     <section className="beneficioss" id="beneficios">
-      
-      <div className="beneficioss-header" data-aos="zoom-in" >
-        
+      <div className="beneficioss-header" data-aos="zoom-in">
         <h2>Todo lo que tu kiosco necesita</h2>
 
         <p>
           Herramientas pensadas para el día a día real de un kiosco, sin
           vueltas.
         </p>
-
       </div>
 
       <div className="beneficioss-grid">
-  {beneficios.map((item, index) => (
-    <article
-      className="beneficios-card"
-      key={item.titulo}
-      data-aos="flip-down"
-      data-aos-delay={index * 200}
-    >
-      <div className="beneficios-icono">
-        <img src={item.icono} alt={item.titulo} />
+        {beneficios.map((item, index) => (
+          <article
+            className="beneficios-card"
+            key={item.titulo}
+            data-aos="flip-down"
+            data-aos-delay={index * 200}
+          >
+            <div className="beneficios-icono">
+              <img src={item.icono} alt={item.titulo} />
+            </div>
+
+            <h3>{item.titulo}</h3>
+
+            <p>{item.descripcion}</p>
+          </article>
+        ))}
       </div>
-
-      <h3>{item.titulo}</h3>
-
-      <p>{item.descripcion}</p>
-    </article>
-  ))}
-</div>
 
       <svg
         className="wave-1"
@@ -77,7 +74,6 @@ const Beneficios = () => {
           d="M0,96L80,122.7C160,149,320,203,480,224C640,245,800,235,960,202.7C1120,171,1280,117,1360,90.7L1440,64L1440,320L0,320Z"
         />
       </svg>
-      
     </section>
   );
 };

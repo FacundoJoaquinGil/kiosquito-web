@@ -3,6 +3,12 @@
     padding: 0;
 }
 
+#beneficios,
+#como-funciona,
+#planes{
+  scroll-margin-top: 71px;
+}
+
 html {
     scroll-behavior: smooth;
 }

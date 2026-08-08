@@ -12,29 +12,37 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <>
+    <div className="home-components-container">
       <Hero />
       <section className="home-body-container">
+        <div className="home-wave"></div>
+
+        {/* Formas decorativas */}
+        <div className="home-decoration home-decoration-1"></div>
+        <div className="home-decoration home-decoration-2"></div>
+        <div className="home-decoration home-decoration-3"></div>
+
         <div className="home-content">
-          <span className="home-badge" data-aos="fade-down">La app para tu kiosco de barrio</span>
+          <span className="home-badge" data-aos="fade-down">
+            La app para tu kiosco de barrio
+          </span>
 
-          <h1 className="home-title" data-aos="fade-right">
-            Gestioná tu kiosco
-            <br />
-            <span>sin complicaciones</span>
-          </h1>
+          <div className="home-title-container" data-aos="fade-right">
+            <span className="home-title-background">Gestioná</span>
 
-          <p className="home-description" data-aos="fade-up" data-aos-delay="250">
+            <h1 className="home-title">Tu Kiosco</h1>
+          </div>
+
+          <p
+            className="home-description"
+            data-aos="fade-up"
+            data-aos-delay="250"
+          >
             Controlá tu stock, registrá cada venta y mirá cómo va tu día en un
-            solo lugar. kiosquito es simple, rápido y funciona desde el celular
-            o la compu.
+            solo lugar.
           </p>
 
-          <div
-    className="home-buttons"
-    data-aos="fade-up"
-    data-aos-delay="400"
->
+          <div className="home-buttons" data-aos="fade-up" data-aos-delay="200">
             <Link to="/registro-login" className="home-btn-primary">
               Comenzar gratis
               <img className="home-flecha-cont" src={flecha} alt="" />
@@ -46,7 +54,11 @@ const Home = () => {
             </Link>
           </div>
 
-          <div className="home-benefits" data-aos="fade-up" data-aos-delay="550">
+          <div
+            className="home-benefits"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
             <div className="benefit">
               <img src={check} alt="" />
               <span>Gratis para empezar</span>
@@ -64,15 +76,23 @@ const Home = () => {
           </div>
         </div>
 
-        <Carousel />
+        <div
+          className="home-carousel"
+          data-aos="fade-left"
+          data-aos-delay="200"
+        >
+          <Carousel />
+        </div>
       </section>
-  
+
       <Beneficios />
+
       <ComoFunciona />
+      
       <PlanesSuscripcion />
 
       <Footer />
-    </>
+    </div>
   );
 };
 

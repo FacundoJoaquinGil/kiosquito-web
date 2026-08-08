@@ -37,9 +37,23 @@ const ComoFunciona = () => {
   }, []);
 
   return (
-    <section className="como-funciona" id="como-funciona" >
+    <section className="como-funciona" id="como-funciona">
+      
+      <svg
+        className="como-funciona-wave-1"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1200 120"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <path
+          fill="var(--background-secondary)"
+          d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+        ></path>
+      </svg>
+
       <div className="como-funciona-container">
-        <div className="como-funciona-content" data-aos="fade-right">
+        <div className="como-funciona-content" data-aos="fade-right" data-aos-delay="200">
           <span className="como-tag">Cómo funciona</span>
 
           <h2>Empezá en 3 pasos</h2>
@@ -61,10 +75,27 @@ const ComoFunciona = () => {
           </div>
         </div>
 
-        <div className="como-funciona-imagen" ref={animationContainer} data-aos="fade-left" />
+        <div
+          className="como-funciona-imagen"
+          ref={animationContainer}
+          data-aos="fade-left"
+          data-aos-delay="200"
+        />
       </div>
 
-      
+      <svg
+        className="como-funciona-wave-2"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1200 120"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <path
+          fill="var(--background-secondary)"
+          d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+        ></path>
+      </svg>
+
     </section>
   );
 };
