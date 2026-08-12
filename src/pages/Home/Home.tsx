@@ -3,14 +3,31 @@ import Hero from "../../components/Hero/Hero";
 import flecha from "../../assets/images/flecha.svg";
 import user from "../../assets/images/user.svg";
 import check from "../../assets/images/check.svg";
-import Carousel from "../../components/Carousel/Carousel";
+// import Carousel from "../../components/Carousel/Carousel";
 import PlanesSuscripcion from "../../components/PlanesSuscripcion/PlanesSuscripcion";
 import Beneficios from "../../components/Beneficios/Beneficios";
 import Footer from "../../components/Footer/Footer";
 import ComoFunciona from "../../components/ComoFunciona/ComoFunciona";
 import { Link } from "react-router-dom";
 
+import lottie from "lottie-web";
+import { useEffect, useRef } from "react";
+import kiosco from "../../assets/images/store2.json";
 const Home = () => {
+  const animationContainer = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const animation = lottie.loadAnimation({
+      container: animationContainer.current!,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      animationData: kiosco,
+    });
+
+    return () => animation.destroy();
+  }, []);
+
   return (
     <div className="home-components-container">
       <Hero />
@@ -81,14 +98,19 @@ const Home = () => {
           data-aos="fade-left"
           data-aos-delay="200"
         >
-          <Carousel />
+          <div
+            className="como-funciona-imagen"
+            ref={animationContainer}
+            data-aos="fade-left"
+            data-aos-delay="200"
+          />
         </div>
       </section>
 
       <Beneficios />
 
       <ComoFunciona />
-      
+
       <PlanesSuscripcion />
 
       <Footer />
