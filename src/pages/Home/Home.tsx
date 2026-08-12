@@ -1,44 +1,81 @@
 import "./Home.css";
 import Hero from "../../components/Hero/Hero";
-import swip1 from "../../assets/images/swip-1.webp";
 import flecha from "../../assets/images/flecha.svg";
 import user from "../../assets/images/user.svg";
 import check from "../../assets/images/check.svg";
+// import Carousel from "../../components/Carousel/Carousel";
+import PlanesSuscripcion from "../../components/PlanesSuscripcion/PlanesSuscripcion";
+import Beneficios from "../../components/Beneficios/Beneficios";
+import Footer from "../../components/Footer/Footer";
+import ComoFunciona from "../../components/ComoFunciona/ComoFunciona";
+import { Link } from "react-router-dom";
 
+import lottie from "lottie-web";
+import { useEffect, useRef } from "react";
+import kiosco from "../../assets/images/store2.json";
 const Home = () => {
+  const animationContainer = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const animation = lottie.loadAnimation({
+      container: animationContainer.current!,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      animationData: kiosco,
+    });
+
+    return () => animation.destroy();
+  }, []);
+
   return (
-    <>
+    <div className="home-components-container">
       <Hero />
       <section className="home-body-container">
+        <div className="home-wave"></div>
+
+        {/* Formas decorativas */}
+        <div className="home-decoration home-decoration-1"></div>
+        <div className="home-decoration home-decoration-2"></div>
+        <div className="home-decoration home-decoration-3"></div>
+
         <div className="home-content">
-          <span className="home-badge">La app para tu kiosco de barrio</span>
+          <span className="home-badge" data-aos="fade-down">
+            La app para tu kiosco de barrio
+          </span>
 
-          <h1 className="home-title">
-            Gestioná tu kiosco
-            <br />
-            <span>sin complicaciones</span>
-          </h1>
+          <div className="home-title-container" data-aos="fade-right">
+            <span className="home-title-background">Gestioná</span>
 
-          <p className="home-description">
-            Controlá tu stock, registrá cada venta y mirá cómo va tu día en un
-            solo lugar. kiosquito es simple, rápido y funciona desde el celular
-            o la compu.
-          </p>
-
-          <div className="home-buttons">
-
-            <button className="home-btn-primary">
-              Crear mi cuenta
-              <img src={flecha} alt="" className="home-flecha-cont"/>
-            </button>
-
-            <button className="home-btn-secondary">
-              Ya tengo cuenta
-              <img src={user} alt="" />
-            </button>
+            <h1 className="home-title">Tu Kiosco</h1>
           </div>
 
-          <div className="home-benefits">
+          <p
+            className="home-description"
+            data-aos="fade-up"
+            data-aos-delay="250"
+          >
+            Controlá tu stock, registrá cada venta y mirá cómo va tu día en un
+            solo lugar.
+          </p>
+
+          <div className="home-buttons" data-aos="fade-up" data-aos-delay="200">
+            <Link to="/registro-login" className="home-btn-primary">
+              Comenzar gratis
+              <img className="home-flecha-cont" src={flecha} alt="" />
+            </Link>
+
+            <Link to="/login" className="home-btn-secondary">
+              Ya tengo cuenta
+              <img src={user} alt="" />
+            </Link>
+          </div>
+
+          <div
+            className="home-benefits"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
             <div className="benefit">
               <img src={check} alt="" />
               <span>Gratis para empezar</span>
@@ -56,16 +93,28 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="home-image">
-
-          {/* SWIPPER O CAROUSEL */}
-
-          {/* Acá va el carrusel más adelante */}
-
-          {/* <img src={swip1} alt="Kiosquito" /> */}
+        <div
+          className="home-carousel"
+          data-aos="fade-left"
+          data-aos-delay="200"
+        >
+          <div
+            className="como-funciona-imagen"
+            ref={animationContainer}
+            data-aos="fade-left"
+            data-aos-delay="200"
+          />
         </div>
       </section>
-    </>
+
+      <Beneficios />
+
+      <ComoFunciona />
+
+      <PlanesSuscripcion />
+
+      <Footer />
+    </div>
   );
 };
 

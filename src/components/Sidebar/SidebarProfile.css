@@ -54,16 +54,23 @@
     margin-top: 1rem;
     border-radius: .75rem;
     background: var(--background-hover);
+    
 }
 
 
 .profile-image {
-    width: 30px;
-    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 10px;
     border-radius: 50%;
     background: var(--color-primary);
-    flex-shrink: 0;
+}
+
+.profile-image img{
+    width: 30px;
+    height: 30px;
+    filter: brightness(0) invert(1);
 }
 
 
