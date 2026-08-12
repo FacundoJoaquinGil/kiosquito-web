@@ -1,9 +1,16 @@
+import type { Filtro } from "../../hooks/useRegistro";
+
 interface FiltrosRegistroProps {
-  filtroActivo: string;
-  setFiltroActivo: React.Dispatch<React.SetStateAction<string>>;
+  filtroActivo: Filtro;
+  setFiltroActivo: React.Dispatch<React.SetStateAction<Filtro>>;
 }
 
-const filtros = ["Todos", "Ventas", "Ingresos", "Egresos"];
+const filtros: Filtro[] = [
+  "Todos",
+  "Ventas",
+  "Ingresos",
+  "Egresos",
+];
 
 const FiltrosRegistro = ({
   filtroActivo,
@@ -14,9 +21,7 @@ const FiltrosRegistro = ({
       {filtros.map((filtro) => (
         <button
           key={filtro}
-          className={`filtro-btn ${
-            filtroActivo === filtro ? "active" : ""
-          }`}
+          className={`filtro-btn ${filtroActivo === filtro ? "active" : ""}`}
           onClick={() => setFiltroActivo(filtro)}
         >
           {filtro}

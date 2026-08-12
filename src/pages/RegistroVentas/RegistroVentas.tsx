@@ -1,68 +1,32 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import "./RegistroVentas.css";
-import ListaMovimientos from "../../components/Registro/ListaMovimientos";
-import RegistroCards from "../../components/Registro/RegistroCards";
-import BuscadorRegistro from "../../components/Registro/BuscadorRegistro";
-import FiltrosRegistro from "../../components/Registro/FiltrosRegistro";
-import Paginacion from "../../components/Registro/Paginacion";
+
+import { BuscadorRegistro, FiltrosRegistro, ListaMovimientos, Paginacion, RegistroCards } from "../../components/Registro";
+
 import { formatearDinero } from "../../utils/formatearDinero";
-
-import { MOVIMIENTOS_MOCK, type Movimiento } from "../../data/movimientosMock";
-
-  const MOVIMIENTOS_POR_PAGINA = 10;
+import { useRegistro } from "../../hooks/useRegistro";
 
 const Registro = () => {
-  const [movimientos, setMovimientos] = useState<Movimiento[]>([]);
-  const [filtroActivo, setFiltroActivo] = useState<string>("Todos");
-  const [busqueda, setBusqueda] = useState<string>("");
-  const [loading, setLoading] = useState<boolean>(true);
-  const [paginaActual, setPaginaActual] = useState(1);
+  const {
+    loading,
 
+    ventasHoy,
+    ingresosHoy,
+    cajaActual,
 
-  useEffect(() => {
-    const obtenerMovimientos = () => {
-      setTimeout(() => {
-        setMovimientos(MOVIMIENTOS_MOCK);
-        setLoading(false);
-      }, 1000);
-    };
+    movimientosPaginados,
 
-    obtenerMovimientos();
-  }, []);
+    busqueda,
+    setBusqueda,
 
+    filtroActivo,
+    setFiltroActivo,
 
-  const ventasHoy = movimientos.filter((m) => m.tipo === "venta").length;
+    paginaActual,
+    setPaginaActual,
 
-  const ingresosHoy = movimientos
-    .filter((m) => m.tipo === "venta" || m.tipo === "ingreso")
-    .reduce((sum, m) => sum + m.monto, 0);
-
-  const cajaActual = movimientos.reduce((total, m) => {
-    return m.tipo === "egreso" ? total - m.monto : total + m.monto;
-  }, 0);
-
-const movimientosFiltrados = movimientos.filter((mov) => {
-  const coincideFiltro =
-    filtroActivo === "Todos" ||
-    (filtroActivo === "Ventas" && mov.tipo === "venta") ||
-    (filtroActivo === "Ingresos" && (mov.tipo === "ingreso" || mov.tipo === "venta")) || 
-    (filtroActivo === "Egresos" && mov.tipo === "egreso");
-
-  const coincideBusqueda = mov.descripcion
-    .toLowerCase()
-    .includes(busqueda.toLowerCase());
-
-  return coincideFiltro && coincideBusqueda;
-});
-
-const totalPaginas = Math.ceil(
-  movimientosFiltrados.length / MOVIMIENTOS_POR_PAGINA
-);
-
-const movimientosPaginados = movimientosFiltrados.slice(
-  (paginaActual - 1) * MOVIMIENTOS_POR_PAGINA,
-  paginaActual * MOVIMIENTOS_POR_PAGINA
-);
+    totalPaginas,
+  } = useRegistro();
 
   useEffect(() => {
     const contenedorFlex = document.querySelector(".flex");
@@ -74,19 +38,16 @@ const movimientosPaginados = movimientosFiltrados.slice(
       contenedorFlex.classList.add("layout-registro-activo");
       contenedorContent.classList.add("scroll-registro-activo");
     }
+
     return () => {
       document.body.classList.remove("no-scroll-global");
 
       if (contenedorFlex && contenedorContent) {
         contenedorFlex.classList.remove("layout-registro-activo");
         contenedorContent.classList.remove("scroll-registro-activo");
-        }
-      };
-    }, []);
-
-  useEffect(() => {
-      setPaginaActual(1);
-  }, [busqueda, filtroActivo]);
+      }
+    };
+  }, []);
 
   return (
     <div className="registro-container">
@@ -107,6 +68,7 @@ const movimientosPaginados = movimientosFiltrados.slice(
             <h3>Movimientos</h3>
             <p>Últimas ventas y movimientos registrados</p>
           </div>
+
           <BuscadorRegistro
             busqueda={busqueda}
             setBusqueda={setBusqueda}
@@ -129,7 +91,6 @@ const movimientosPaginados = movimientosFiltrados.slice(
           totalPaginas={totalPaginas}
           onCambiarPagina={setPaginaActual}
         />
-
       </div>
     </div>
   );
