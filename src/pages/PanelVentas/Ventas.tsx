@@ -1,5 +1,5 @@
 
-import { BuscadorVentas, Carrito, FiltrosCategorias, ListaProductos } from "../../components/Ventas";
+import { BuscadorVentas, Carrito, FiltrosCategorias, ListaProductos } from ".";
 import { useVentas } from "../../hooks/useVentas";
 import "./Ventas.css";
 

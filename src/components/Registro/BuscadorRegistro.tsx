@@ -1,3 +1,5 @@
+
+
 interface BuscadorRegistroProps {
   busqueda: string;
   setBusqueda: React.Dispatch<React.SetStateAction<string>>;
@@ -9,6 +11,7 @@ const BuscadorRegistro = ({
 }: BuscadorRegistroProps) => {
   return (
     <div className="search-container">
+      <img src="" alt="" />
       <span className="search-icon">🔍</span>
 
       <input

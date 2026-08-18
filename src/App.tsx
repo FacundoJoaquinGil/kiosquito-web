@@ -5,14 +5,14 @@ import DashboardLayout from "./layouts/DashboardLayout/DashboardLayout";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import PanelControl from "./pages/PanelControl/PanelControl";
-import Registro from "./pages/RegistroVentas/RegistroVentas";
 import Stock from "./pages/Stock";
-import Ventas from "./pages/Ventas/Ventas";
+import Ventas from "./pages/PanelVentas/Ventas";
 import RegistroLogin from "./pages/RegistroLogin/RegistroLogin";
 
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import PanelRegistro from "./pages/PanelRegistro/PanelRegistro";
 
 
 function App() {
@@ -37,7 +37,7 @@ function App() {
         {/* Privadas */}
         <Route element={<DashboardLayout />}>
           <Route path="/panel-control" element={<PanelControl />} />
-          <Route path="/registro" element={<Registro />} />
+          <Route path="/registro" element={<PanelRegistro />} />
           <Route path="/stock" element={<Stock />} />
           <Route path="/ventas" element={<Ventas />} />
         </Route>

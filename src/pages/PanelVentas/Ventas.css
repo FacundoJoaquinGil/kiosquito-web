@@ -6,7 +6,7 @@
   display: grid;
   grid-template-columns: 1fr 360px;
   gap: 24px;
-  height: calc(100vh - 120px);
+  height: 100vh;
 }
 
 /* ======================================================
