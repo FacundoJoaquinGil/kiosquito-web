@@ -14,6 +14,7 @@ const Ventas = () => {
     setCategoria,
 
     carrito,
+    cancelarVenta,
 
     metodoPago,
     setMetodoPago,
@@ -72,6 +73,7 @@ const Ventas = () => {
         onDisminuir={disminuirCantidad}
         onEliminar={eliminarProducto}
         onCambiarMetodo={setMetodoPago}
+        onCancelarVenta={cancelarVenta}
       />
 
     </div>

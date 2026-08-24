@@ -109,6 +109,10 @@ export const useVentas = () => {
     );
   }, [carrito]);
 
+  const cancelarVenta = () => {
+    setCarrito([]);
+  };
+
   return {
     busqueda,
     setBusqueda,
@@ -117,6 +121,7 @@ export const useVentas = () => {
     setCategoria,
 
     carrito,
+    cancelarVenta,
 
     metodoPago,
     setMetodoPago,

@@ -1,0 +1,142 @@
+/* ======================================================
+   CARRITO
+====================================================== */
+
+.carrito {
+  display: flex;
+  flex-direction: column;
+
+  background: var(--background-secondary);
+
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+
+  overflow: hidden;
+}
+
+
+/* ======================================================
+   HEADER
+====================================================== */
+
+.carrito-header {
+  padding: 20px 22px;
+
+  border-bottom: 1px solid var(--border-color);
+}
+
+.carrito-header-contenido {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: 58px;
+}
+
+
+/* ======================================================
+   INFORMACIÓN
+====================================================== */
+
+.carrito-header-info {
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.carrito-header-info h2 {
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-size: 22px;
+  font-weight: 700;
+
+  line-height: 1.2;
+}
+
+.carrito-header-info span {
+  color: var(--text-secondary);
+
+  font-size: 13px;
+
+  line-height: 1.2;
+}
+
+/* ======================================================
+   LISTA
+====================================================== */
+
+.carrito-lista {
+  flex: 1;
+
+  overflow-y: auto;
+
+  padding: 20px;
+}
+
+
+/* ======================================================
+   CARRITO VACÍO
+====================================================== */
+
+.carrito-vacio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+
+  padding: 40px 20px;
+
+  text-align: center;
+}
+
+
+/* ======================================================
+   ICONO
+====================================================== */
+
+.carrito-vacio-icono {
+  width: 48px;
+  height: 48px;
+
+  object-fit: contain;
+
+  margin-bottom: 16px;
+
+  opacity: 0.65;
+}
+
+
+/* ======================================================
+   TÍTULO
+====================================================== */
+
+.carrito-vacio h3 {
+  margin: 0 0 6px;
+
+  color: var(--text-placeholder);
+
+  font-size: 16px;
+  font-weight: 600;
+}
+
+
+/* ======================================================
+   DESCRIPCIÓN
+====================================================== */
+
+.carrito-vacio p {
+  max-width: 190px;
+
+  margin: 0;
+
+  color: var(--text-placeholder);
+
+  font-size: 13px;
+
+  line-height: 1.5;
+}

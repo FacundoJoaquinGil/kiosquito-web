@@ -1,6 +1,7 @@
 import type { Producto } from "../../types/ventasTypes";
 import ProductoCard from "./ProductoCard";
 
+
 interface ListaProductosProps {
   productos: Producto[];
   onAgregar: (producto: Producto) => void;

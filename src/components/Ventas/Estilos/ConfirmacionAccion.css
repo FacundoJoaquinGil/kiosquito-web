@@ -1,0 +1,149 @@
+/* ======================================================
+   CONTENEDOR
+====================================================== */
+
+.confirmacion-accion {
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+
+  animation: aparecerConfirmacion 0.2s ease-out;
+}
+
+
+/* ======================================================
+   ICONO
+====================================================== */
+
+.confirmacion-icono {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  border-radius: 50%;
+
+  background: var(--color-primary-bg);
+
+  color: var(--color-primary);
+
+  font-size: 18px;
+  font-weight: 700;
+}
+
+
+/* ======================================================
+   CONTENIDO
+====================================================== */
+
+.confirmacion-contenido h3 {
+  margin: 0 0 4px;
+
+  color: var(--text-primary);
+
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.confirmacion-contenido p {
+  margin: 0;
+
+  color: var(--text-secondary);
+
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+
+/* ======================================================
+   ACCIONES
+====================================================== */
+
+.confirmacion-acciones {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 8px;
+
+  margin-top: 4px;
+}
+
+.confirmacion-acciones button {
+  height: 38px;
+
+  border-radius: 9px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.15s ease;
+}
+
+
+/* ======================================================
+   VOLVER
+====================================================== */
+
+.confirmacion-btn-volver {
+  border: 1px solid var(--border-color);
+
+  background: var(--background-secondary);
+
+  color: var(--text-secondary);
+}
+
+.confirmacion-btn-volver:hover {
+  background: var(--background-hover);
+
+  border-color: var(--border-hover);
+
+  color: var(--text-primary);
+}
+
+
+/* ======================================================
+   CONFIRMAR
+====================================================== */
+
+.confirmacion-btn-confirmar {
+  border: 1px solid var(--danger);
+
+  background: transparent;
+
+  color: var(--danger);
+}
+
+.confirmacion-btn-confirmar:hover {
+  background: var(--danger);
+
+  color: white;
+}
+
+
+/* ======================================================
+   ANIMACIÓN
+====================================================== */
+
+@keyframes aparecerConfirmacion {
+  from {
+    opacity: 0;
+
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}

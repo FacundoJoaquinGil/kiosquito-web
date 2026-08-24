@@ -2,10 +2,11 @@ import type {
   MetodoPago,
   ProductoCarrito,
 } from "../../types/ventasTypes";
+import "./estilos/Carrito.css";
 
-import CarritoItem from "./CarritoItem";
-import MetodosPago from "./MetodosPago";
-import ResumenVenta from "./ResumenVenta";
+
+import carritoImg from "../../assets/images/carrito.svg";
+import { MetodosPago, CarritoItem, ResumenVenta } from "../../components/Ventas";
 
 interface CarritoProps {
   carrito: ProductoCarrito[];
@@ -27,11 +28,12 @@ interface CarritoProps {
 const Carrito = ({
   carrito,
   cantidadProductos,
-
+  
   metodoPago,
-
+  
   total,
-
+  
+  onCancelarVenta,
   onAumentar,
   onDisminuir,
   onEliminar,
@@ -44,35 +46,49 @@ const Carrito = ({
 
       {/* HEADER */}
 
-      <div className="carrito-header">
+     <div className="carrito-header">
+      <div className="carrito-header-contenido">
 
-        <h2>Carrito</h2>
+          <div className="carrito-header-info">
+            <h2>Carrito</h2>
 
-        <span>
-          {cantidadProductos}{" "}
-          {cantidadProductos === 1
-            ? "producto"
-            : "productos"}
-        </span>
+            <span>
+              {cantidadProductos}{" "}
+              {cantidadProductos === 1
+                ? "producto"
+                : "productos"}
+            </span>
+          </div>
 
+
+        </div>
       </div>
+    
 
 
       {/* PRODUCTOS */}
 
       <div className="carrito-lista">
 
-        {carrito.length === 0 ? (
+            {carrito.length === 0 ? (
 
-          <div className="carrito-vacio">
+              <div className="carrito-vacio">
 
-            <p>
-              No hay productos agregados.
-            </p>
+                <img
+                  src={carritoImg}
+                  alt=""
+                  className="carrito-vacio-icono"
+                />
 
-          </div>
+                <h3>Tu carrito está vacío</h3>
+                
+                <p>
+                  Agregá productos para comenzar.
+                </p>
 
-        ) : (
+              </div>
+
+            ) : (
 
           carrito.map((producto) => (
 
@@ -89,15 +105,6 @@ const Carrito = ({
         )}
 
       </div>
-
-
-      {/* MÉTODO DE PAGO */}
-
-      <MetodosPago
-        metodoActual={metodoPago}
-        onCambiarMetodo={onCambiarMetodo}
-      />
-
 
       {/* RESUMEN */}
 

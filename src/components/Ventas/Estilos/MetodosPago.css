@@ -1,0 +1,87 @@
+/* ======================================================
+   MÉTODOS DE PAGO
+====================================================== */
+
+.metodos-pago {
+  padding: 20px 22px;
+}
+
+.metodos-pago h3 {
+  margin: 0 0 14px;
+
+  color: var(--text-primary);
+
+  font-size: 17px;
+  font-weight: 600;
+}
+
+
+/* ======================================================
+   GRID
+====================================================== */
+
+.metodos-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 10px;
+}
+
+
+/* ======================================================
+   MÉTODO
+====================================================== */
+
+.metodo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  height: 76px;
+
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+
+  background: var(--background-secondary);
+
+  cursor: pointer;
+
+  font-size: 22px;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.15s ease;
+}
+
+.metodo span {
+  color: var(--text-secondary);
+
+  font-size: 12px;
+}
+
+.metodo:hover {
+  border-color: var(--color-primary);
+
+  transform: translateY(-1px);
+}
+
+.metodo.activo {
+  background: var(--color-primary-bg);
+
+  border-color: var(--color-primary);
+}
+
+.metodo.activo span {
+  color: var(--color-primary);
+
+  font-weight: 600;
+}
+
+.metodo:active {
+  transform: scale(0.97);
+}
