@@ -1,20 +1,22 @@
-import { existsSync } from "node:fs";
-import { resolve } from "node:path";
 import { loadEnvFile } from "node:process";
 
-const envPath = resolve(process.cwd(), ".env");
-
-if (existsSync(envPath)) {
-  loadEnvFile(envPath);
+try {
+  loadEnvFile();
+} catch {
+  // En producción las variables pueden venir directamente
+  // del entorno y no existir un archivo .env.
 }
 
 const PORT = Number(process.env.PORT ?? 3000);
+const NODE_ENV = process.env.NODE_ENV ?? "development";
+const DATABASE_URL = process.env.DATABASE_URL;
 
-if (!Number.isInteger(PORT) || PORT <= 0 || PORT > 65535) {
-  throw new Error("PORT debe ser un número de puerto válido");
+if (!DATABASE_URL) {
+  throw new Error("DATABASE_URL no está definida");
 }
 
 export const env = {
   PORT,
-  NODE_ENV: process.env.NODE_ENV ?? "development",
+  NODE_ENV,
+  DATABASE_URL,
 };
