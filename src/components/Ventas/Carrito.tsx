@@ -6,7 +6,7 @@ import "./estilos/Carrito.css";
 
 
 import carritoImg from "../../assets/images/carrito.svg";
-import { MetodosPago, CarritoItem, ResumenVenta } from "../../components/Ventas";
+import { CarritoItem, ResumenVenta, FinalizarVenta } from "../../components/Ventas";
 
 interface CarritoProps {
   carrito: ProductoCarrito[];
@@ -19,27 +19,39 @@ interface CarritoProps {
   onAumentar: (id: number) => void;
   onDisminuir: (id: number) => void;
   onEliminar: (id: number) => void;
+
   onCancelarVenta: () => void;
+
+  finalizandoVenta: boolean;
 
   onCambiarMetodo: (
     metodo: MetodoPago
   ) => void;
+
+  onFinalizarVenta: () => void;
+  onVolverCarrito: () => void;
 }
 
 const Carrito = ({
   carrito,
   cantidadProductos,
-  
+
   metodoPago,
-  
+
   total,
-  
-  onCancelarVenta,
+
+  finalizandoVenta,
+
   onAumentar,
   onDisminuir,
   onEliminar,
+  onCancelarVenta,
 
   onCambiarMetodo,
+
+  onFinalizarVenta,
+  onVolverCarrito,
+
 }: CarritoProps) => {
 
   return (
@@ -69,51 +81,67 @@ const Carrito = ({
 
       {/* PRODUCTOS */}
 
-      <div className="carrito-lista">
+    <div className="carrito-lista">
 
-            {carrito.length === 0 ? (
+      {finalizandoVenta ? (
 
-              <div className="carrito-vacio">
+        <FinalizarVenta
+          metodoPago={metodoPago}
+          total={total}
+          onCambiarMetodo={onCambiarMetodo}
+          onVolver={onVolverCarrito}
+          onConfirmar={(emitirTicket) => {
+            console.log("Venta confirmada");
+            console.log("Emitir ticket:", emitirTicket);
+          }}
+        />
 
-                <img
-                  src={carritoImg}
-                  alt=""
-                  className="carrito-vacio-icono"
-                />
+      ) : carrito.length === 0 ? (
 
-                <h3>Tu carrito está vacío</h3>
-                
-                <p>
-                  Agregá productos para comenzar.
-                </p>
+        <div className="carrito-vacio">
 
-              </div>
+          <img
+            src={carritoImg}
+            alt=""
+            className="carrito-vacio-icono"
+          />
 
-            ) : (
+          <h3>Tu carrito está vacío</h3>
 
-          carrito.map((producto) => (
+          <p>
+            Agregá productos para comenzar.
+          </p>
 
-            <CarritoItem
-              key={producto.id}
-              producto={producto}
-              onAumentar={onAumentar}
-              onDisminuir={onDisminuir}
-              onEliminar={onEliminar}
-            />
+        </div>
 
-          ))
+      ) : (
 
-        )}
+        carrito.map((producto) => (
 
-      </div>
+          <CarritoItem
+            key={producto.id}
+            producto={producto}
+            onAumentar={onAumentar}
+            onDisminuir={onDisminuir}
+            onEliminar={onEliminar}
+          />
+
+        ))
+
+      )}
+
+    </div>
 
       {/* RESUMEN */}
 
-      <ResumenVenta
-        total={total}
-        tieneProductos={carrito.length > 0}
-        onCancelarVenta={onCancelarVenta}
-      />
+      {!finalizandoVenta && (
+        <ResumenVenta
+          total={total}
+          tieneProductos={carrito.length > 0}
+          onFinalizarVenta={onFinalizarVenta}
+          onCancelarVenta={onCancelarVenta}
+        />
+      )}
 
     </aside>
   );

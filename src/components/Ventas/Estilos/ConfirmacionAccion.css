@@ -5,12 +5,16 @@
 .confirmacion-accion {
   display: flex;
   flex-direction: column;
+  align-items: center;
+
+  text-align: center;
 
   gap: 12px;
 
-  animation: aparecerConfirmacion 0.2s ease-out;
-}
+  padding: 8px 0 12px;
 
+  animation: aparecerConfirmacion 0.5s ease-out;
+}
 
 /* ======================================================
    ICONO
@@ -32,7 +36,10 @@
 
   font-size: 18px;
   font-weight: 700;
+  flex-shrink: 0;
 }
+
+
 
 
 /* ======================================================
@@ -64,13 +71,16 @@
 
 .confirmacion-acciones {
   display: grid;
-
   grid-template-columns: 1fr 1fr;
 
   gap: 8px;
 
-  margin-top: 4px;
+  margin-top: 10px;
+  margin-bottom: 4px;
+
+  width: 100%;
 }
+
 
 .confirmacion-acciones button {
   height: 38px;

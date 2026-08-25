@@ -6,3 +6,5 @@ export { default as ListaProductos } from "./ListaProductos";
 export { default as MetodosPago } from "./MetodosPago";
 export { default as ProductoCard } from "./ProductoCard";
 export { default as ResumenVenta } from "./ResumenVenta";
+export { default as FinalizarVenta } from "./FinalizarVenta";
+export { default as ProductosVacios } from "./ProductosVacios";

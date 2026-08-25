@@ -109,10 +109,10 @@ export const useVentas = () => {
     );
   }, [carrito]);
 
-  const cancelarVenta = () => {
-    setCarrito([]);
-  };
-
+ const cancelarVenta = () => {
+  setCarrito([]);
+  setMetodoPago("Efectivo");
+};
   return {
     busqueda,
     setBusqueda,

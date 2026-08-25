@@ -2,9 +2,11 @@
 import { BuscadorVentas, Carrito, FiltrosCategorias, ListaProductos } from "../../components/Ventas";
 import { useVentas } from "../../hooks/useVentas";
 import "./Ventas.css";
-
+import { useState } from "react";
 
 const Ventas = () => {
+
+  const [finalizandoVenta, setFinalizandoVenta] = useState(false);
 
   const {
     busqueda,
@@ -59,6 +61,12 @@ const Ventas = () => {
         <ListaProductos
           productos={productosFiltrados}
           onAgregar={agregarProducto}
+          busqueda={busqueda}
+          categoria={categoria}
+          onLimpiar={() => {
+            setBusqueda("");
+            setCategoria("Todos");
+          }}
         />
 
       </section>
@@ -74,8 +82,10 @@ const Ventas = () => {
         onEliminar={eliminarProducto}
         onCambiarMetodo={setMetodoPago}
         onCancelarVenta={cancelarVenta}
+        finalizandoVenta={finalizandoVenta}
+        onFinalizarVenta={() => setFinalizandoVenta(true)}
+        onVolverCarrito={() => setFinalizandoVenta(false)}
       />
-
     </div>
   );
 };

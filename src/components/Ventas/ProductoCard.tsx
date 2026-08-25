@@ -12,8 +12,26 @@ const ProductoCard = ({
   producto,
   onAgregar,
 }: ProductoCardProps) => {
+
+  const handleAgregar = () => {
+    onAgregar(producto);
+  };
+
+  const handleClickBoton = (
+    e: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    e.stopPropagation();
+    handleAgregar();
+  };
+
   return (
-    <article className="producto-card">
+    <article
+      className="producto-card"
+      onClick={handleAgregar}
+      role="button"
+      tabIndex={0}
+      aria-label={`Agregar ${producto.nombre} al carrito`}
+    >
 
       <span className="producto-categoria">
         {producto.categoria}
@@ -30,7 +48,7 @@ const ProductoCard = ({
         <button
           type="button"
           className="agregar-btn"
-          onClick={() => onAgregar(producto)}
+          onClick={handleClickBoton}
           aria-label={`Agregar ${producto.nombre}`}
         >
           +

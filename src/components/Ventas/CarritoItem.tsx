@@ -1,3 +1,4 @@
+import { useState } from "react";
 import type { ProductoCarrito } from "../../types/ventasTypes";
 import { formatearDinero } from "../../utils/formatearDinero";
 import "./estilos/CarritoItem.css";
@@ -16,10 +17,18 @@ const CarritoItem = ({
   onDisminuir,
   onEliminar,
 }: CarritoItemProps) => {
+  const [isLeaving, setIsLeaving] = useState(false);
   const subtotal = producto.precio * producto.cantidad;
 
+  const handleEliminar = () => {
+    setIsLeaving(true);
+    setTimeout(() => {
+      onEliminar(producto.id);
+    }, 200);
+  };
+
   return (
-    <article className="carrito-item">
+    <article className={`carrito-item ${isLeaving ? "carrito-item-saliendo" : ""}`}>
 
       {/* INFORMACIÓN */}
 
@@ -38,7 +47,7 @@ const CarritoItem = ({
         <button
           type="button"
           className="eliminar-btn"
-          onClick={() => onEliminar(producto.id)}
+          onClick={handleEliminar}
           aria-label={`Eliminar ${producto.nombre}`}
         >
           <img

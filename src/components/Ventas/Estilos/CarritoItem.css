@@ -5,33 +5,37 @@
 .carrito-item {
   display: flex;
   flex-direction: column;
-
   gap: 12px;
-
   padding: 13px 14px;
-
   margin-bottom: 10px;
 
-  background: var(--background-secondary);
+  width: 100%;
+  box-sizing: border-box;
+  flex-shrink: 0;
 
+  background: var(--background-secondary);
   border: 1px solid var(--border-color);
   border-radius: 12px;
 
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+  animation: slide-down var(--transition-normal) var(--ease-out);
+
+  transition: var(--transition-card);
+}
+
+.carrito-item-saliendo {
+  opacity: 0;
+  transform: translateX(18px) scale(0.96);
+  transition: 
+    opacity var(--transition-fast) var(--ease-out),
+    transform var(--transition-fast) var(--ease-out);
+  pointer-events: none;
 }
 
 .carrito-item:hover {
-
   transform: translateY(-3px);
-
   border-color: #fdba74;
-
-  box-shadow:
-    0 10px 25px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
 }
-
 
 /* ======================================================
    HEADER
@@ -115,6 +119,11 @@
   border-color: rgba(239, 68, 68, 0.15);
 }
 
+.eliminar-btn:hover .eliminar-icono {
+  transform: rotate(-8deg);
+  transition: var(--transition-icon);
+}
+
 .eliminar-btn:active {
   transform: scale(0.92);
 }
@@ -123,8 +132,6 @@
   width: 20px;
   color: var(--text-secondary);
 }
-
-
 
 
 /* ======================================================

@@ -1,41 +1,29 @@
 import { useState } from "react";
-
 import { formatearDinero } from "../../utils/formatearDinero";
-
 import ConfirmacionAccion from "./ConfirmacionAccion";
-
 import "./estilos/ResumenVenta.css";
 
 interface ResumenVentaProps {
   total: number;
   tieneProductos: boolean;
 
+  onFinalizarVenta: () => void;
   onCancelarVenta: () => void;
 }
 
 const ResumenVenta = ({
   total,
   tieneProductos,
+  onFinalizarVenta,
   onCancelarVenta,
 }: ResumenVentaProps) => {
 
-  const [mostrarConfirmacion, setMostrarConfirmacion] =
-    useState(false);
+  const [mostrarConfirmacion, setMostrarConfirmacion] = useState(false);
 
-
-  const handleCobrar = () => {
-    if (!tieneProductos) return;
-
-    console.log("Procesando venta...");
-  };
-
-
-  const handleCancelarVenta = () => {
+  const handleConfirmarCancelacion = () => {
     onCancelarVenta();
-
     setMostrarConfirmacion(false);
   };
-
 
   if (mostrarConfirmacion) {
     return (
@@ -47,13 +35,12 @@ const ResumenVenta = ({
           textoCancelar="Volver"
           textoConfirmar="Cancelar venta"
           onCancelar={() => setMostrarConfirmacion(false)}
-          onConfirmar={handleCancelarVenta}
+          onConfirmar={handleConfirmarCancelacion}
         />
 
       </div>
     );
   }
-
 
   return (
     <div className="resumen">
@@ -68,16 +55,14 @@ const ResumenVenta = ({
 
       </div>
 
-
       <button
         type="button"
         className="btn-cobrar"
         disabled={!tieneProductos}
-        onClick={handleCobrar}
+        onClick={onFinalizarVenta}
       >
         Finalizar venta
       </button>
-
 
       {tieneProductos && (
         <button
