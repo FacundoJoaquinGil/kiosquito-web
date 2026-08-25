@@ -1,9 +1,27 @@
-import { hash } from "@node-rs/argon2";
+import { hash, verify } from "@node-rs/argon2";
 
 import { prisma } from "../../config/prisma.js";
 import { UserRole } from "../../generated/prisma/enums.js";
 
-import type { RegisterInput } from "./auth.schema.js";
+import {
+  ACCESS_TOKEN_EXPIRES_IN_SECONDS,
+  createAccessToken,
+} from "../../lib/jwt.js";
+
+import {
+  InactiveUserError,
+  InvalidCredentialsError,
+} from "./auth.errors.js";
+
+import type {
+  LoginInput,
+  RegisterInput,
+} from "./auth.schema.js";
+
+
+// ======================================================
+// REGISTER
+// ======================================================
 
 export const registerBusiness = async ({
   businessName,
@@ -55,4 +73,75 @@ export const registerBusiness = async ({
       user,
     };
   });
+};
+
+
+// ======================================================
+// LOGIN
+// ======================================================
+
+export const loginUser = async ({
+  email,
+  password,
+}: LoginInput) => {
+  const user = await prisma.user.findUnique({
+    where: {
+      email,
+    },
+
+    select: {
+      id: true,
+      businessId: true,
+      name: true,
+      email: true,
+      passwordHash: true,
+      role: true,
+      isActive: true,
+
+      business: {
+        select: {
+          id: true,
+          name: true,
+        },
+      },
+    },
+  });
+
+  if (!user) {
+    throw new InvalidCredentialsError();
+  }
+
+  const passwordIsValid = await verify(
+    user.passwordHash,
+    password,
+  );
+
+  if (!passwordIsValid) {
+    throw new InvalidCredentialsError();
+  }
+
+  if (!user.isActive) {
+    throw new InactiveUserError();
+  }
+
+  const accessToken = await createAccessToken({
+    userId: user.id,
+    businessId: user.businessId,
+    role: user.role,
+  });
+
+  return {
+    accessToken,
+    tokenType: "Bearer",
+    expiresIn: ACCESS_TOKEN_EXPIRES_IN_SECONDS,
+
+    user: {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      role: user.role,
+    },
+
+    business: user.business,
+  };
 };
