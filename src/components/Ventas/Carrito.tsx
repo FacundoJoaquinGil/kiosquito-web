@@ -19,6 +19,7 @@ interface CarritoProps {
   onAumentar: (id: number) => void;
   onDisminuir: (id: number) => void;
   onEliminar: (id: number) => void;
+  onCancelarVenta: () => void;
 
   onCambiarMetodo: (
     metodo: MetodoPago
@@ -111,6 +112,7 @@ const Carrito = ({
       <ResumenVenta
         total={total}
         tieneProductos={carrito.length > 0}
+        onCancelarVenta={onCancelarVenta}
       />
 
     </aside>
