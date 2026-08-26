@@ -16,7 +16,9 @@ const SidebarProfile = () => {
       </button>
 
       <div className="profile-card">
-        <img src={user} alt="Foto de perfil" className="profile-image" />
+        <div className="profile-image">
+        <img src={user} alt="Foto de perfil"  />
+        </div>
 
         <div className="profile-info">
           <span className="profile-name">{username}</span>

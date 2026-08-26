@@ -1,27 +1,48 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Header from "./components/Header/Header";
-import Sidebar from "./components/Sidebar/Sidebar";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import DashboardLayout from "./layouts/DashboardLayout/DashboardLayout";
+
 import Home from "./pages/Home/Home";
-import Registro from "./pages/Registro/Registro";
+import Login from "./pages/Login/Login";
+import PanelControl from "./pages/PanelControl/PanelControl";
 import Stock from "./pages/Stock";
-import Ventas from "./pages/Ventas";
+import Ventas from "./pages/PanelVentas/Ventas";
+import RegistroLogin from "./pages/RegistroLogin/RegistroLogin";
+
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import PanelRegistro from "./pages/PanelRegistro/PanelRegistro";
+
 
 function App() {
+
+  useEffect(() => {
+        AOS.init({
+            duration: 800,
+            once: false,
+            offset: 100,
+        });
+    }, []);
+
+
   return (
-    <Router>
-      <Header />
-      <div className="flex">
-        <Sidebar />
-        <div className="content">
-          <Routes> 
-            <Route path="/" element={<Home />} />
-            <Route path="/Registro" element={<Registro />} />
-            <Route path="/Stock" element={<Stock />} />
-            <Route path="/Ventas" element={<Ventas />} />
-          </Routes>
-        </div>
-      </div>
-    </Router>
+    <BrowserRouter>
+      <Routes>
+        {/* Públicas */}
+        <Route path="/*" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/registro-login" element={<RegistroLogin />} />
+
+        {/* Privadas */}
+        <Route element={<DashboardLayout />}>
+          <Route path="/panel-control" element={<PanelControl />} />
+          <Route path="/registro" element={<PanelRegistro />} />
+          <Route path="/stock" element={<Stock />} />
+          <Route path="/ventas" element={<Ventas />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

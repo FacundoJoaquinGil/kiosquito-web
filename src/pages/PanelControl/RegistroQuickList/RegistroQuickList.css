@@ -1,0 +1,71 @@
+.registro-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 1rem;
+}
+
+.registro-id {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: var(--color-primary-bg);
+    color: var(--color-primary);
+
+    font-size: .85rem;
+    font-weight: 600;
+}
+
+.registro-info {
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+}
+
+.registro-info span {
+    font-size: 1rem;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 500px;
+    color: var(--text-primary);
+}
+
+.registro-info p {
+    font-size: .9rem;
+    color: var(--text-secondary);
+}
+
+.registro-total {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.skeleton-id {
+    width: 50px;
+    height: 20px;
+}
+
+.skeleton-title {
+    width: 220px;
+    height: 16px;
+    margin-bottom: .5rem;
+}
+
+.skeleton-subtitle {
+    width: 150px;
+    height: 13px;
+}
+
+.skeleton-total {
+    width: 70px;
+    height: 18px;
+}

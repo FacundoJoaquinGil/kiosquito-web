@@ -1,0 +1,113 @@
+.dashboard-card {
+    background: var(--background-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 1.25rem;
+    overflow: hidden;
+}
+
+.dashboard-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1.5rem;
+
+    border-bottom: 1px solid var(--border-color);
+}
+
+.dashboard-card-header h2,
+.dashboard-card-header h3 {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin-bottom: .25rem;
+}
+
+.dashboard-card-header p {
+    font-size: .9rem;
+    color: var(--text-secondary);
+}
+
+.dashboard-card-action {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    padding: .6rem 1rem;
+
+    border: 1px solid var(--border-color);
+    border-radius: .75rem;
+
+    background: var(--background-main);
+
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 600;
+
+    transition: var(--transition-fast);
+}
+
+.dashboard-card-action img {
+    width: 17px;
+    transition: var(--transition-fast);
+}
+
+.dashboard-card-action:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.dashboard-card-action:hover img {
+    filter: invert(53%) sepia(86%) saturate(2453%) hue-rotate(349deg) brightness(101%) contrast(97%);
+}
+
+.dashboard-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dashboard-list-item {
+    padding: 1rem 1.5rem;
+
+    border-bottom: 1px solid var(--border-color);
+
+    transition: background-color .2s ease;
+}
+
+.dashboard-list-item:last-child {
+    border-bottom: none;
+}
+
+.dashboard-list-item:hover {
+    background: var(--background-main);
+}
+
+.skeleton {
+    position: relative;
+    overflow: hidden;
+
+    background: #e9ecef;
+
+    border-radius: .5rem;
+}
+
+.skeleton::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    transform: translateX(-100%);
+
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, .7),
+            transparent);
+
+    animation: shimmer 1.4s infinite;
+}
+
+@keyframes shimmer {
+    to {
+        transform: translateX(100%);
+    }
+}

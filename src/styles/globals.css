@@ -3,12 +3,27 @@
     padding: 0;
 }
 
+#beneficios,
+#como-funciona,
+#planes{
+  scroll-margin-top: 71px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body{
     font-family: "Inter", sans-serif;
     background-color: var(--background-main);
     color: var(--text-primary);
 }
 
-.flex{
-    display: flex;  
+.flex {
+    display: flex;
+}
+
+.content {
+    flex: 1;
+    min-width: 0;
 }

@@ -1,16 +1,12 @@
-import { useEffect } from "react";
-import "./Registro.css";
+import "./PanelRegistro.css";
 
-import ListaMovimientos from "../../components/Registro/ListaMovimientos";
-import RegistroCards from "../../components/Registro/RegistroCards";
-import BuscadorRegistro from "../../components/Registro/BuscadorRegistro";
-import FiltrosRegistro from "../../components/Registro/FiltrosRegistro";
-import Paginacion from "../../components/Registro/Paginacion";
+import { BuscadorRegistro, FiltrosRegistro, ListaMovimientos, Paginacion, RegistroCards } from "../../components/Registro";
 
 import { formatearDinero } from "../../utils/formatearDinero";
 import { useRegistro } from "../../hooks/useRegistro";
 
-const Registro = () => {
+const PanelRegistro = () => {
+  
   const {
     loading,
 
@@ -31,27 +27,6 @@ const Registro = () => {
 
     totalPaginas,
   } = useRegistro();
-
-  useEffect(() => {
-    const contenedorFlex = document.querySelector(".flex");
-    const contenedorContent = document.querySelector(".content");
-
-    document.body.classList.add("no-scroll-global");
-
-    if (contenedorFlex && contenedorContent) {
-      contenedorFlex.classList.add("layout-registro-activo");
-      contenedorContent.classList.add("scroll-registro-activo");
-    }
-
-    return () => {
-      document.body.classList.remove("no-scroll-global");
-
-      if (contenedorFlex && contenedorContent) {
-        contenedorFlex.classList.remove("layout-registro-activo");
-        contenedorContent.classList.remove("scroll-registro-activo");
-      }
-    };
-  }, []);
 
   return (
     <div className="registro-container">
@@ -100,4 +75,4 @@ const Registro = () => {
   );
 };
 
-export default Registro;
+export default PanelRegistro;
