@@ -1,21 +1,32 @@
 import type { Producto } from "../../types/ventasTypes";
 import ProductoCard from "./ProductoCard";
+import ProductosVacios from "./ProductosVacios";
 
 interface ListaProductosProps {
   productos: Producto[];
   onAgregar: (producto: Producto) => void;
+
+  busqueda: string;
+  categoria: string;
+
+  onLimpiar: () => void;
 }
 
 const ListaProductos = ({
   productos,
   onAgregar,
+  busqueda,
+  categoria,
+  onLimpiar,
 }: ListaProductosProps) => {
 
   if (productos.length === 0) {
     return (
-      <div className="productos-vacios">
-        <p>No se encontraron productos.</p>
-      </div>
+      <ProductosVacios
+        busqueda={busqueda}
+        categoria={categoria}
+        onLimpiar={onLimpiar}
+      />
     );
   }
 

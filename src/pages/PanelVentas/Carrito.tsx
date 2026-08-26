@@ -2,10 +2,11 @@ import type {
   MetodoPago,
   ProductoCarrito,
 } from "../../types/ventasTypes";
+import "./estilos/Carrito.css";
 
-import CarritoItem from "./CarritoItem";
-import MetodosPago from "./MetodosPago";
-import ResumenVenta from "./ResumenVenta";
+
+import carritoImg from "../../assets/images/carrito.svg";
+import { CarritoItem, ResumenVenta, FinalizarVenta } from "../../components/Ventas";
 
 interface CarritoProps {
   carrito: ProductoCarrito[];
@@ -19,9 +20,16 @@ interface CarritoProps {
   onDisminuir: (id: number) => void;
   onEliminar: (id: number) => void;
 
+  onCancelarVenta: () => void;
+
+  finalizandoVenta: boolean;
+
   onCambiarMetodo: (
     metodo: MetodoPago
   ) => void;
+
+  onFinalizarVenta: () => void;
+  onVolverCarrito: () => void;
 }
 
 const Carrito = ({
@@ -32,11 +40,18 @@ const Carrito = ({
 
   total,
 
+  finalizandoVenta,
+
   onAumentar,
   onDisminuir,
   onEliminar,
+  onCancelarVenta,
 
   onCambiarMetodo,
+
+  onFinalizarVenta,
+  onVolverCarrito,
+
 }: CarritoProps) => {
 
   return (
@@ -44,67 +59,89 @@ const Carrito = ({
 
       {/* HEADER */}
 
-      <div className="carrito-header">
+     <div className="carrito-header">
+      <div className="carrito-header-contenido">
 
-        <h2>Carrito</h2>
+          <div className="carrito-header-info">
+            <h2>Carrito</h2>
 
-        <span>
-          {cantidadProductos}{" "}
-          {cantidadProductos === 1
-            ? "producto"
-            : "productos"}
-        </span>
+            <span>
+              {cantidadProductos}{" "}
+              {cantidadProductos === 1
+                ? "producto"
+                : "productos"}
+            </span>
+          </div>
 
+
+        </div>
       </div>
+    
 
 
       {/* PRODUCTOS */}
 
-      <div className="carrito-lista">
+    <div className="carrito-lista">
 
-        {carrito.length === 0 ? (
+      {finalizandoVenta ? (
 
-          <div className="carrito-vacio">
+        <FinalizarVenta
+          metodoPago={metodoPago}
+          total={total}
+          onCambiarMetodo={onCambiarMetodo}
+          onVolver={onVolverCarrito}
+          onConfirmar={(emitirTicket) => {
+            console.log("Venta confirmada");
+            console.log("Emitir ticket:", emitirTicket);
+          }}
+        />
 
-            <p>
-              No hay productos agregados.
-            </p>
+      ) : carrito.length === 0 ? (
 
-          </div>
+        <div className="carrito-vacio">
 
-        ) : (
+          <img
+            src={carritoImg}
+            alt=""
+            className="carrito-vacio-icono"
+          />
 
-          carrito.map((producto) => (
+          <h3>Tu carrito está vacío</h3>
 
-            <CarritoItem
-              key={producto.id}
-              producto={producto}
-              onAumentar={onAumentar}
-              onDisminuir={onDisminuir}
-              onEliminar={onEliminar}
-            />
+          <p>
+            Agregá productos para comenzar.
+          </p>
 
-          ))
+        </div>
 
-        )}
+      ) : (
 
-      </div>
+        carrito.map((producto) => (
 
+          <CarritoItem
+            key={producto.id}
+            producto={producto}
+            onAumentar={onAumentar}
+            onDisminuir={onDisminuir}
+            onEliminar={onEliminar}
+          />
 
-      {/* MÉTODO DE PAGO */}
+        ))
 
-      <MetodosPago
-        metodoActual={metodoPago}
-        onCambiarMetodo={onCambiarMetodo}
-      />
+      )}
 
+    </div>
 
       {/* RESUMEN */}
 
-      <ResumenVenta
-        total={total}
-        tieneProductos={carrito.length > 0}
-      />
+      {!finalizandoVenta && (
+        <ResumenVenta
+          total={total}
+          tieneProductos={carrito.length > 0}
+          onFinalizarVenta={onFinalizarVenta}
+          onCancelarVenta={onCancelarVenta}
+        />
+      )}
 
     </aside>
   );
