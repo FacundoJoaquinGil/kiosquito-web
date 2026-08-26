@@ -43,6 +43,10 @@
   transition: transform var(--transition-fast) var(--ease);
 }
 
+.card:hover {
+  transform: translateY(-2px);
+}
+
 .card-header {
   display: flex;
   justify-content: space-between;
@@ -289,4 +293,38 @@ body.no-scroll-global {
   height: 100vh;
   max-height: 100vh;
   overflow: hidden !important;
+}
+
+
+/* ================================
+   SKELETON MOVIMIENTOS
+================================ */
+
+.movimiento-skeleton {
+  pointer-events: none;
+}
+
+.skeleton-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.skeleton-title {
+  width: 180px;
+  height: 16px;
+  border-radius: 6px;
+}
+
+.skeleton-detail {
+  width: 130px;
+  height: 12px;
+  border-radius: 6px;
+}
+
+.skeleton-monto {
+  width: 85px;
+  height: 18px;
+  border-radius: 6px;
 }
