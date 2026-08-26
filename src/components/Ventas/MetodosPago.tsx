@@ -1,4 +1,5 @@
 import type { MetodoPago } from "../../types/ventasTypes";
+import "./estilos/MetodosPago.css";
 
 interface MetodosPagoProps {
   metodoActual: MetodoPago;
