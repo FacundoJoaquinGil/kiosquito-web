@@ -1,16 +1,16 @@
+import "./RegistroComponents.css";
+
 const MovimientoSkeleton = () => {
   return (
-    <div className="movimiento-row movimiento-skeleton">
-      <div className="movimiento-left">
-        <div className="skeleton skeleton-avatar"></div>
+    <div className="registro-item movimiento-skeleton">
+      <div className="skeleton skeleton-registro-id"></div>
 
-        <div className="movimiento-info">
-          <div className="skeleton skeleton-title"></div>
-          <div className="skeleton skeleton-detail"></div>
-        </div>
+      <div className="registro-info">
+        <div className="skeleton skeleton-title"></div>
+        <div className="skeleton skeleton-subtitle"></div>
       </div>
 
-      <div className="skeleton skeleton-monto"></div>
+      <div className="skeleton skeleton-total"></div>
     </div>
   );
 };
