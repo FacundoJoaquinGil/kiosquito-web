@@ -145,3 +145,37 @@ export const loginUser = async ({
     business: user.business,
   };
 };
+
+export const getCurrentUser = async ({
+  userId,
+  businessId,
+}: {
+  userId: string;
+  businessId: string;
+}) => {
+  const user = await prisma.user.findFirst({
+    where: {
+      id: userId,
+      businessId,
+      isActive: true,
+    },
+
+    select: {
+      id: true,
+      businessId: true,
+      name: true,
+      email: true,
+      role: true,
+      isActive: true,
+
+      business: {
+        select: {
+          id: true,
+          name: true,
+        },
+      },
+    },
+  });
+
+  return user;
+};

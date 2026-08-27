@@ -1,4 +1,4 @@
-import type { Request, Response } from "express";
+import type { NextFunction, Request, Response } from "express";
 
 import { Prisma } from "../../generated/prisma/client.js";
 
@@ -6,7 +6,7 @@ import { InactiveUserError, InvalidCredentialsError } from "./auth.errors.js";
 
 import { loginSchema, registerSchema } from "./auth.schema.js";
 
-import { loginUser, registerBusiness } from "./auth.service.js";
+import { loginUser, registerBusiness, getCurrentUser } from "./auth.service.js";
 
 export const register = async (req: Request, res: Response) => {
   const validation = registerSchema.safeParse(req.body);
@@ -95,5 +95,36 @@ export const login = async (req: Request, res: Response) => {
       status: "error",
       message: "Ocurrió un error al iniciar sesión",
     });
+  }
+};
+
+export const me = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  try {
+    if (!req.auth) {
+      return res.status(401).json({
+        message: "No autenticado",
+      });
+    }
+
+    const user = await getCurrentUser({
+      userId: req.auth.userId,
+      businessId: req.auth.businessId,
+    });
+
+    if (!user) {
+      return res.status(401).json({
+        message: "Sesión inválida",
+      });
+    }
+
+    return res.status(200).json({
+      user,
+    });
+  } catch (error) {
+    next(error);
   }
 };
