@@ -1,3 +1,6 @@
+import lupa from "../../assets/images/lupa.svg";
+import "./Estilos/BuscadorVentas.css";
+
 interface BuscadorVentasProps {
   value: string;
   onChange: (value: string) => void;
@@ -9,9 +12,8 @@ const BuscadorVentas = ({
 }: BuscadorVentasProps) => {
   return (
     <div className="ventas-buscador">
-
       <span className="buscador-icono">
-        🔍
+        <img src={lupa} alt="" aria-hidden="true" />
       </span>
 
       <input
@@ -31,7 +33,6 @@ const BuscadorVentas = ({
           ×
         </button>
       )}
-
     </div>
   );
 };
