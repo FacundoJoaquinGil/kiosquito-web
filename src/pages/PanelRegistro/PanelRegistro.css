@@ -16,7 +16,7 @@
   background-color: var(--background-main);
   color: var(--text-primary);
 
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 
@@ -24,6 +24,13 @@
    SCROLLBAR DEL PANEL REGISTRO
 ========================================================= */
 
+/* Firefox */
+.registro-container {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-hover) transparent;
+}
+
+/* Chrome, Edge y Safari */
 .registro-container::-webkit-scrollbar {
   width: 8px;
 }
@@ -423,26 +430,4 @@
 
 .monto.negativo {
   color: var(--danger);
-}
-
-.registro-container {
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-primary) transparent;
-}
-
-/* Chrome / Edge */
-.registro-container::-webkit-scrollbar {
-  width: 12px;
-}
-
-.registro-container::-webkit-scrollbar-thumb {
-  background-color: var(--color-primary);
-  border-radius: 999px;
-
-  border: 2px solid transparent;
-  background-clip: content-box;
-}
-
-.registro-container::-webkit-scrollbar-thumb:hover {
-  background-color: var(--color-primary-hover);
 }

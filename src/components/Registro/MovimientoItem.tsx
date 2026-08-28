@@ -14,8 +14,10 @@ const MovimientoItem = ({
   let avatarContent: string | number = movimiento.id;
 
   if (movimiento.tipo === "ingreso") {
+    avatarClass = "registro-id registro-id-ingreso";
     avatarContent = "⬇";
   } else if (movimiento.tipo === "egreso") {
+    avatarClass = "registro-id registro-id-egreso";
     avatarContent = "⬆";
   }
 
@@ -31,10 +33,10 @@ const MovimientoItem = ({
     movimiento.detalle_adicional ||
     (movimiento.tipo === "venta"
       ? `Venta #${movimiento.id}`
-      : `${movimiento.tipo.charAt(0).toUpperCase() + movimiento.tipo.slice(1)} manual`);
+      : `${movimiento.tipo.charAt(0).toUpperCase()}${movimiento.tipo.slice(1)} manual`);
 
   return (
-    <div className="registro-item">
+    <div className="dashboard-list-item registro-item">
       <div className={avatarClass}>{avatarContent}</div>
 
       <div className="registro-info">
@@ -45,9 +47,9 @@ const MovimientoItem = ({
         </p>
       </div>
 
-      <span className={montoClase}>
+      <div className={montoClase}>
         {prefijoMonto} {formatearDinero(movimiento.monto)}
-      </span>
+      </div>
     </div>
   );
 };

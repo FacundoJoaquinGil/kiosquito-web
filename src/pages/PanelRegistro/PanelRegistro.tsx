@@ -63,6 +63,8 @@ const PanelRegistro = () => {
           loading={loading}
           movimientos={movimientosPaginados}
           formatearDinero={formatearDinero}
+          busqueda={busqueda}
+          limpiarBusqueda={() => setBusqueda("")}
         />
 
         <Paginacion
