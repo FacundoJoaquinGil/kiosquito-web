@@ -1,0 +1,528 @@
+/* =========================================================
+   REGISTRO
+========================================================= */
+
+.registro-page {
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+
+  overflow: hidden;
+
+  background: var(--background-main);
+}
+
+
+/* =========================================================
+   PANEL IZQUIERDO - CAROUSEL
+========================================================= */
+
+.registro-carousel {
+  position: relative;
+
+  width: 50%;
+  height: 100vh;
+
+  flex-shrink: 0;
+
+  overflow: hidden;
+
+  border-left: 4px solid var(--color-primary);
+}
+
+
+/* =========================================================
+   PANEL DERECHO
+========================================================= */
+
+.registro-login a {
+  padding: 0;
+  margin-left: 5px;
+
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 600;
+
+  color: var(--color-primary);
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition: color var(--transition-fast);
+}
+
+.registro-login a:hover {
+  color: var(--color-primary-hover);
+}
+
+.registro-form-section {
+  width: 50%;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 35px 7%;
+
+  box-sizing: border-box;
+
+  background: var(--background-main);
+
+  overflow-y: auto;
+}
+
+.registro-head-body{
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 50px;
+}
+
+.registro-form-container {
+  width: 100%;
+  max-width: 570px;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.registro-heading-logo {
+  display: flex;
+  justify-content: center;
+}
+
+.registro-heading-logo img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+}
+
+
+/* =========================================================
+   TITULO
+========================================================= */
+
+.registro-heading h2 {
+  margin: 0 0 8px;
+
+  font-size: 36px;
+  line-height: 1.2;
+
+  font-weight: 700;
+  letter-spacing: -1px;
+
+  color: var(--color-primary);
+}
+
+.registro-heading p {
+  margin: 0;
+
+  font-size: 15px;
+  line-height: 1.55;
+
+  color: var(--text-secondary);
+}
+
+
+/* =========================================================
+   FORMULARIO
+========================================================= */
+
+.registro-form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 17px;
+}
+
+
+/* =========================================================
+   FILA NOMBRE / APELLIDO
+========================================================= */
+
+.registro-fields-row {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 15px;
+}
+
+
+/* =========================================================
+   CAMPOS
+========================================================= */
+
+.registro-field {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.registro-field label {
+  font-size: 14px;
+
+  font-weight: 500;
+
+  color: var(--text-primary);
+}
+
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+.registro-input-wrapper {
+  position: relative;
+
+  width: 100%;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+
+  box-sizing: border-box;
+
+  border: 1px solid var(--border-color);
+  border-radius: 15px;
+
+  background: var(--background-secondary);
+
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.registro-input-wrapper:focus-within {
+  border-color: var(--color-primary);
+
+  box-shadow:
+    0 0 0 4px rgba(250, 115, 23, 0.10);
+}
+
+
+/* =========================================================
+   ICONO INPUT
+========================================================= */
+
+.registro-input-icon {
+  width: 21px;
+  height: 21px;
+
+  margin-left: 15px;
+
+  flex-shrink: 0;
+
+  object-fit: contain;
+}
+
+
+/* =========================================================
+   INPUT TEXT
+========================================================= */
+
+.registro-input-wrapper input {
+  width: 100%;
+  height: 100%;
+
+  min-width: 0;
+
+  padding: 0 15px;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  font-family: inherit;
+  font-size: 14px;
+
+  color: var(--text-primary);
+}
+
+.registro-input-wrapper input::placeholder {
+  color: var(--text-placeholder);
+}
+
+
+/* =========================================================
+   PASSWORD TOGGLE
+========================================================= */
+
+.registro-password-toggle {
+  width: 48px;
+  height: 100%;
+
+  padding: 0;
+  margin-right: 2px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border: none;
+
+  background: transparent;
+
+  cursor: pointer;
+}
+
+.registro-password-toggle img {
+  width: 20px;
+  height: 20px;
+
+  object-fit: contain;
+}
+
+
+/* =========================================================
+   TERMINOS
+========================================================= */
+
+.registro-terms {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  margin-top: 2px;
+
+  font-size: 14px;
+
+  color: var(--text-secondary);
+
+  cursor: pointer;
+}
+
+.registro-terms input {
+  width: 17px;
+  height: 17px;
+
+  margin: 0;
+
+  accent-color: var(--color-primary);
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   BOTON
+========================================================= */
+
+.registro-button {
+  width: 100%;
+  height: 55px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  margin-top: 3px;
+
+  border: none;
+  border-radius: 15px;
+
+  background: var(--color-primary);
+
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+
+  color: #ffffff;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 4px 7px rgba(250, 115, 23, 0.20);
+
+  transition:
+    background var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.registro-button:hover {
+  background: var(--color-primary-hover);
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 6px 14px rgba(250, 115, 23, 0.24);
+}
+
+.registro-button:active {
+  transform: translateY(0);
+}
+
+.registro-button img {
+  width: 19px;
+  height: 19px;
+
+  object-fit: contain;
+
+  filter: brightness(0) invert(1);
+}
+
+
+/* =========================================================
+   DIVISOR
+========================================================= */
+
+.registro-divider {
+  width: 100%;
+
+  margin: 25px 0 20px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 17px;
+}
+
+.registro-divider span {
+  flex: 1;
+
+  height: 1px;
+
+  background: var(--border-color);
+}
+
+.registro-divider small {
+  font-size: 14px;
+
+  color: var(--text-secondary);
+}
+
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+.registro-login {
+  margin: 0;
+
+  text-align: center;
+
+  font-size: 14px;
+
+  color: var(--text-secondary);
+}
+
+.registro-login button {
+  padding: 0;
+  margin-left: 5px;
+
+  border: none;
+
+  background: transparent;
+
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 600;
+
+  color: var(--color-primary);
+
+  cursor: pointer;
+
+  transition:
+    color var(--transition-fast);
+}
+
+.registro-login button:hover {
+  color: var(--color-primary-hover);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .registro-form-container {
+    max-width: 430px;
+  }
+
+  .registro-heading h2 {
+    font-size: 34px;
+  }
+
+}
+
+
+@media (max-width: 900px) {
+
+  .registro-carousel {
+    width: 45%;
+  }
+
+  .registro-form-section {
+    width: 55%;
+
+    padding: 35px 40px;
+  }
+
+  .registro-form-container {
+    max-width: 420px;
+  }
+
+  .registro-heading h2 {
+    font-size: 32px;
+  }
+
+}
+
+
+@media (max-width: 700px) {
+
+  .registro-page {
+    min-height: 100vh;
+  }
+
+  .registro-carousel {
+    display: none;
+  }
+
+  .registro-form-section {
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 30px 24px;
+  }
+
+  .registro-form-container {
+    max-width: 420px;
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  .registro-fields-row {
+    grid-template-columns: 1fr;
+
+    gap: 17px;
+  }
+
+  .registro-heading-logo img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .registro-heading h2 {
+    font-size: 30px;
+  }
+
+}

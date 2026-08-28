@@ -1,0 +1,121 @@
+
+.sidebar-profile-container {
+    padding: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+
+
+
+.settings-button img {
+    width: 24px;
+    height: 24px;
+}
+
+.settings-button span {
+    font-size: medium;
+    color: inherit;
+}
+
+.settings-button {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    width: 100%;
+    padding: .75rem;
+    border: none;
+    border-radius: .75rem;
+    background-color: var(--background-terciary);
+    cursor: pointer;
+    color: var(--text-secondary);
+
+    transition: var(--transition-button);
+}
+
+.settings-button img {
+    transition: filter var(--transition-fast) var(--ease);
+}
+
+.settings-button:hover {
+    background-color: var(--background-hover);
+    color: var(--text-primary);
+    transform: scale(1.03);
+}
+
+.settings-button:hover img {
+    filter: invert(15%) brightness(20%) contrast(100%);
+}
+
+
+.profile-card {
+    display: flex;
+    align-items: center;
+    padding: .75rem;
+    margin-top: 1rem;
+    border-radius: .75rem;
+    background: var(--background-hover);
+    
+}
+
+
+.profile-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 50%;
+    background: var(--color-primary);
+}
+
+.profile-image img{
+    width: 30px;
+    height: 30px;
+    filter: brightness(0) invert(1);
+}
+
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: .75rem;
+}
+
+.profile-name {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.profile-store {
+    font-size: .9rem;
+    color: var(--text-secondary);
+}
+
+
+
+.logout-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: .5rem;
+    background: var(--background-terciary);
+    cursor: pointer;
+    transition: var(--transition-icon);
+}
+
+.logout-button img {
+    width: 22px;
+    height: 22px;
+    transition: filter var(--transition-normal) var(--ease);
+}
+
+.logout-button:hover{
+    transform: scale(1.07);
+}
+
+.logout-button:hover img{
+    filter: invert(15%) brightness(20%) contrast(100%);
+}
