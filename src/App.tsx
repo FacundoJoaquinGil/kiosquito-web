@@ -13,6 +13,7 @@ import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import PanelRegistro from "./pages/PanelRegistro/PanelRegistro";
+import PanelAdministracion from "./pages/PanelAdministracion/PanelAdministracion";
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
           <Route path="/registro" element={<PanelRegistro />} />
           <Route path="/stock" element={<Stock />} />
           <Route path="/ventas" element={<Ventas />} />
+          <Route path="/admin" element={<PanelAdministracion />} />
         </Route>
       </Routes>
     </BrowserRouter>
