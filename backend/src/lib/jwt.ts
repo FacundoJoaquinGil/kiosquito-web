@@ -5,21 +5,24 @@ import { env } from "../config/env.js";
 const JWT_ISSUER = "kiosquito-api";
 const JWT_AUDIENCE = "kiosquito-web";
 
-export const ACCESS_TOKEN_EXPIRES_IN_SECONDS = 15 * 60;
-// 15 minutos = 900 segundos
+export const ACCESS_TOKEN_EXPIRES_IN_SECONDS = 60 * 60 * 8;
 
 const secret = Buffer.from(env.JWT_SECRET, "base64url");
 
 export type AccessTokenPayload = {
   userId: string;
   businessId: string;
-  role: "OWNER" | "EMPLOYEE";
+  role: "OWNER" | "MANAGER" | "EMPLOYEE";
 };
 
 const isValidRole = (
   role: unknown,
 ): role is AccessTokenPayload["role"] => {
-  return role === "OWNER" || role === "EMPLOYEE";
+  return (
+    role === "OWNER" ||
+    role === "MANAGER" ||
+    role === "EMPLOYEE"
+  );
 };
 
 export const createAccessToken = async ({
@@ -27,23 +30,18 @@ export const createAccessToken = async ({
   businessId,
   role,
 }: AccessTokenPayload) => {
-  const expirationTime =
-    Math.floor(Date.now() / 1000) +
-    ACCESS_TOKEN_EXPIRES_IN_SECONDS;
-
   return new SignJWT({
+    userId,
     businessId,
     role,
   })
     .setProtectedHeader({
       alg: "HS256",
-      typ: "JWT",
     })
-    .setSubject(userId)
     .setIssuer(JWT_ISSUER)
     .setAudience(JWT_AUDIENCE)
     .setIssuedAt()
-    .setExpirationTime(expirationTime)
+    .setExpirationTime(`${ACCESS_TOKEN_EXPIRES_IN_SECONDS}s`)
     .sign(secret);
 };
 
@@ -51,15 +49,12 @@ export const verifyAccessToken = async (
   token: string,
 ): Promise<AccessTokenPayload> => {
   const { payload } = await jwtVerify(token, secret, {
-    algorithms: ["HS256"],
     issuer: JWT_ISSUER,
     audience: JWT_AUDIENCE,
-    typ: "JWT",
+    algorithms: ["HS256"],
   });
 
-  const userId = payload.sub;
-  const businessId = payload.businessId;
-  const role = payload.role;
+  const { userId, businessId, role } = payload;
 
   if (
     typeof userId !== "string" ||

@@ -19,22 +19,18 @@ export const authenticate = async (
     });
   }
 
-  const match = authorization.match(
-    /^Bearer\s+(\S+)$/i,
-  );
+  const [scheme, token] = authorization.split(" ");
 
-  if (!match) {
+  if (scheme !== "Bearer" || !token) {
     return res.status(401).json({
-      message: "Formato de autenticación inválido",
+      message: "Formato de autorización inválido",
     });
   }
 
-  const token = match[1];
-
   try {
-    const auth = await verifyAccessToken(token);
+    const payload = await verifyAccessToken(token);
 
-    req.auth = auth;
+    req.auth = payload;
 
     next();
   } catch {
