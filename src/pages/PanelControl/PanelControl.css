@@ -23,12 +23,24 @@
 }
 
 .welcome-date {
+    margin-top: .3rem;
     font-weight: 500;
     color: var(--text-secondary);
 }
 
 .kiosco-name {
     font-weight: 700;
+    color: var(--color-primary);
+}
+
+.puesto-parrafo {
+    margin-top: .9rem;
+    margin-bottom: .2rem;
+    font-weight: 500;
+}
+
+.kiosco-puesto {
+    font-weight: 500;
     color: var(--color-primary);
 }
 

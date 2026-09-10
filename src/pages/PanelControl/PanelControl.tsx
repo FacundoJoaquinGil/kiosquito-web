@@ -9,6 +9,7 @@ import StockBajoQL from "./StockBajoQL/StockBajoQL";
 const PanelControl = () => {
   const nameUser = "Maria";
   const kioscoName = "La Pato";
+  const rolKiosco = "Encargado";
 
   const fecha = new Date();
 
@@ -28,6 +29,10 @@ const PanelControl = () => {
         <h2 className="welcome-subtitle">
           Panel de tu kiosco <span className="kiosco-name">"{kioscoName}"</span>
         </h2>
+
+        <h3 className="puesto-parrafo">
+          Puesto: <span className="kiosco-puesto">{rolKiosco}</span>
+        </h3>
 
         <p className="welcome-date">{fechaCapitalizada}</p>
       </section>

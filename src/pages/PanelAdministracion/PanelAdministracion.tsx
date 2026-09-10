@@ -78,21 +78,10 @@ const PanelAdministracion = () => {
 
               <p>Resumen general y gestión de tu negocio.</p>
             </div>
-
-            <span className="panel-administracion__updated">
-              Actualizado hace un momento
-            </span>
           </header>
 
           <section className="admin-summary">
-            <div className="admin-summary__title">
-              <div>
-                <h2>Resumen del día</h2>
-                <p>Estado general de tu kiosco durante hoy</p>
-              </div>
-
-              <span>Jueves, 27 de agosto</span>
-            </div>
+            
 
             <div className="admin-summary__metrics">
               <AdminMetricCard
