@@ -10,9 +10,11 @@ import EquipoModal from "../../components/Administracion/EquipoModal";
 
 
 
-import ingresosIcon from "../../assets/images/ingresos.svg";
-import gananciaIcon from "../../assets/images/ganancia.svg";
-import ventasIcon from "../../assets/images/ventas.svg";
+ import ventasIcon from "../../assets/images/ingresos.svg";
+import ingresosIcon from "../../assets/images/registrodia.svg";
+
+import gananciaIcon from "../../assets/images/grafico.svg";
+
 import RegistroQuickList from "../PanelControl/RegistroQuickList/RegistroQuickList";
 
 const initialMembers: TeamMember[] = [

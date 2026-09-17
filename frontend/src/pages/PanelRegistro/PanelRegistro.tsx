@@ -1,6 +1,6 @@
 import "./PanelRegistro.css";
 
-import { BuscadorRegistro, FiltrosRegistro, ListaMovimientos, Paginacion, RegistroCards } from "../../components/Registro";
+import { BuscadorRegistro, FiltrosRegistro, ListaMovimientos, Paginacion } from "../../components/Registro";
 
 import { formatearDinero } from "../../utils/formatearDinero";
 import { useRegistro } from "../../hooks/useRegistro";
@@ -9,10 +9,6 @@ const PanelRegistro = () => {
   
   const {
     loading,
-
-    ventasHoy,
-    ingresosHoy,
-    cajaActual,
 
     movimientosPaginados,
 
@@ -35,11 +31,7 @@ const PanelRegistro = () => {
         <p>Revisá ventas, ingresos y movimientos de hoy.</p>
       </div>
 
-      <RegistroCards
-        ventasHoy={ventasHoy}
-        ingresosHoy={formatearDinero(ingresosHoy)}
-        cajaActual={formatearDinero(cajaActual)}
-      />
+      
 
       <div className="movimientos-section">
         <div className="movimientos-header">

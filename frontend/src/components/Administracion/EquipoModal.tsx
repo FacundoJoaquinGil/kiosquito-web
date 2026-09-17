@@ -144,88 +144,118 @@ const EquipoModal = ({
         </div>
 
         <form
-          className="admin-modal__form"
-          onSubmit={handleSubmit}
-        >
-          <div className="admin-modal__form-title">
-            <img src={agregarUsuario} alt="" />
+  className={`admin-modal__form ${
+    editingId !== null
+      ? "admin-modal__form--editing"
+      : ""
+  }`}
+  onSubmit={handleSubmit}
+>
+  <div className="admin-modal__form-header">
+    <div className="admin-modal__form-title">
+      <img
+        src={
+          editingId !== null
+            ? editarUsuario
+            : agregarUsuario
+        }
+        alt=""
+        aria-hidden="true"
+      />
 
-            <span>
-              {editingId !== null
-                ? "Editar usuario"
-                : "Agregar usuario"}
-            </span>
-          </div>
+      <div>
+        <span>
+          {editingId !== null
+            ? "Editar usuario"
+            : "Agregar usuario"}
+        </span>
 
-          <div className="admin-modal__fields">
-            <label>
-              Nombre
-              <input
-                type="text"
-                placeholder="Nombre completo"
-                value={form.name}
-                onChange={(event) =>
-                  setForm({
-                    ...form,
-                    name: event.target.value,
-                  })
-                }
-              />
-            </label>
+        <p>
+          {editingId !== null
+            ? "Modificá los datos y permisos del usuario seleccionado."
+            : "Completá los datos para agregar una nueva persona al equipo."}
+        </p>
+      </div>
+    </div>
+  </div>
 
-            <label>
-              Email
-              <input
-                type="email"
-                placeholder="usuario@email.com"
-                value={form.email}
-                onChange={(event) =>
-                  setForm({
-                    ...form,
-                    email: event.target.value,
-                  })
-                }
-              />
-            </label>
+  <div className="admin-modal__fields">
+    <label>
+      <span>Nombre</span>
 
-            <label>
-              Rol
-              <select
-                value={form.role}
-                onChange={(event) =>
-                  setForm({
-                    ...form,
-                    role: event.target.value as TeamMemberRole,
-                  })
-                }
-              >
-                <option value="EMPLOYEE">Empleado</option>
-                <option value="OWNER">Administrador</option>
-              </select>
-            </label>
-          </div>
+      <input
+        type="text"
+        placeholder="Nombre completo"
+        value={form.name}
+        onChange={(event) =>
+          setForm({
+            ...form,
+            name: event.target.value,
+          })
+        }
+      />
+    </label>
 
-          <div className="admin-modal__form-actions">
-            {editingId !== null && (
-              <button
-                type="button"
-                className="admin-button admin-button--secondary"
-                onClick={resetForm}
-              >
-                Cancelar
-              </button>
-            )}
+    <label>
+      <span>Email</span>
 
-            <button
-              type="submit"
-              className="admin-button admin-button--primary"
-            >
-              {editingId !== null
-                ? "Guardar cambios"
-                : "Agregar usuario"}
-            </button>
-          </div>
-        </form>
+      <input
+        type="email"
+        placeholder="usuario@email.com"
+        value={form.email}
+        onChange={(event) =>
+          setForm({
+            ...form,
+            email: event.target.value,
+          })
+        }
+      />
+    </label>
+
+    <label>
+      <span>Rol</span>
+
+      <select
+        value={form.role}
+        onChange={(event) =>
+          setForm({
+            ...form,
+            role: event.target.value as TeamMemberRole,
+          })
+        }
+      >
+        <option value="EMPLOYEE">
+          Empleado
+        </option>
+
+        <option value="OWNER">
+          Administrador
+        </option>
+      </select>
+    </label>
+  </div>
+
+  <div className="admin-modal__form-actions">
+    {editingId !== null && (
+      <button
+        type="button"
+        className="admin-button admin-button--secondary"
+        onClick={resetForm}
+      >
+        Cancelar
+      </button>
+    )}
+
+    <button
+      type="submit"
+      className="admin-button admin-button--primary"
+    >
+      {editingId !== null
+        ? "Guardar cambios"
+        : "Agregar usuario"}
+    </button>
+  </div>
+</form>
 
         <div className="admin-modal__users">
           <div className="admin-modal__users-header">
